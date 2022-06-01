@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2010/01/27 17:45:31.917.cpp,H:\Programacao\MeusProjetos\Cheating_Matrix\Teste\Cliente\unitCliente.cpp=C:\Documents and Settings\Douglas-CV\Meus documentos\RAD Studio\Projects\Unit14.cpp</Transaction>
+    <Transaction>2010/01/27 17:45:31.933.dfm,H:\Programacao\MeusProjetos\Cheating_Matrix\Teste\Cliente\unitCliente.dfm=C:\Documents and Settings\Douglas-CV\Meus documentos\RAD Studio\Projects\Unit14.dfm</Transaction>
+    <Transaction>2010/01/27 17:45:31.933.h,H:\Programacao\MeusProjetos\Cheating_Matrix\Teste\Cliente\unitCliente.h=C:\Documents and Settings\Douglas-CV\Meus documentos\RAD Studio\Projects\Unit14.h</Transaction>
+    <Transaction>2010/01/27 17:45:36.292.cbproj,H:\Programacao\MeusProjetos\Cheating_Matrix\Teste\Cliente\Cliente.cbproj=C:\Documents and Settings\Douglas-CV\Meus documentos\RAD Studio\Projects\Project1.cbproj</Transaction>
+    <Transaction>2010/02/01 14:32:25.339.cpp,H:\Programacao\MeusProjetos\Cheating_Matrix\Teste\Cliente\client.cpp=H:\Programacao\MeusProjetos\Cheating_Matrix\Teste\Cliente\Unit8.cpp</Transaction>
+    <Transaction>2010/02/01 14:32:25.339.h,H:\Programacao\MeusProjetos\Cheating_Matrix\Teste\Cliente\client.h=H:\Programacao\MeusProjetos\Cheating_Matrix\Teste\Cliente\Unit8.h</Transaction>
+  </Transactions>
+</BorlandProject>

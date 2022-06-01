@@ -1,0 +1,155 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{FC5B9929-ADEF-4448-94A8-AC3A34D990D5}</ProjectGuid>
+			<MainSource>matriz.dpr</MainSource>
+			<Config Condition="'$(Config)'==''">Release</Config>
+			<DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
+			<ProjectVersion>12.2</ProjectVersion>
+			<Base>True</Base>
+			<Platform>Win32</Platform>
+			<AppType>Application</AppType>
+			<FrameworkType>VCL</FrameworkType>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Release' or '$(Cfg_1)'!=''">
+			<Cfg_1>true</Cfg_1>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Debug' or '$(Cfg_2)'!=''">
+			<Cfg_2>true</Cfg_2>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Base)'!=''">
+			<ImageDebugInfo>true</ImageDebugInfo>
+			<DCC_DebugInfoInExe>true</DCC_DebugInfoInExe>
+			<BRCC_IncludePath>lvk;$(BRCC_IncludePath)</BRCC_IncludePath>
+			<DCC_Description>Cheat Matrix X</DCC_Description>
+			<DCC_ExeOutput>Compiled\</DCC_ExeOutput>
+			<DCC_UnitSearchPath>Includes;LVK;Skins\original;rtc;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+			<DCC_ImageBase>00400000</DCC_ImageBase>
+			<DCC_DependencyCheckOutputName>Compiled\matriz.exe</DCC_DependencyCheckOutputName>
+			<DCC_Hints>false</DCC_Hints>
+			<DCC_UnitAlias>WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;$(DCC_UnitAlias)</DCC_UnitAlias>
+			<DCC_Platform>x86</DCC_Platform>
+			<DCC_Warnings>false</DCC_Warnings>
+			<DCC_K>false</DCC_K>
+			<DCC_F>false</DCC_F>
+			<DCC_S>false</DCC_S>
+			<DCC_N>true</DCC_N>
+			<DCC_UsePackage>vcl;rtl;vclx;dbrtl;vcldb;adortl;dbxcds;dbexpress;vclib;ibxpress;xmlrtl;vclactnband;inet;IntrawebDB_80_100;Intraweb_80_100;vclie;inetdbbde;inetdbxpress;IndyCore;IndySystem;dclOfficeXP;VclSmp;soaprtl;dsnap;IndyProtocols;bdertl;teeui;teedb;tee;vcldbx;dsnapcon;websnap;webdsnap;bwc</DCC_UsePackage>
+			<DCC_E>false</DCC_E>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Cfg_1)'!=''">
+			<DCC_DebugInfoInExe>false</DCC_DebugInfoInExe>
+			<DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
+			<DCC_Define>RELEASE;$(DCC_Define)</DCC_Define>
+			<DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
+			<DCC_DebugInformation>false</DCC_DebugInformation>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Cfg_2)'!=''">
+			<DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
+			<DCC_Hints>true</DCC_Hints>
+			<DCC_Warnings>true</DCC_Warnings>
+			<DCC_DebugInfoInExe>false</DCC_DebugInfoInExe>
+		</PropertyGroup>
+		<ItemGroup>
+			<DelphiCompile Include="matriz.dpr">
+				<MainSource>MainSource</MainSource>
+			</DelphiCompile>
+			<DCCReference Include="SplashScreen.pas"/>
+			<DCCReference Include="Utils.pas"/>
+			<DCCReference Include="CmPlugins.pas"/>
+			<DCCReference Include="SkyFiles.pas"/>
+			<DCCReference Include="SkySql.pas"/>
+			<DCCReference Include="CMStatus.pas"/>
+			<DCCReference Include="Constantes.pas"/>
+			<DCCReference Include="ConfigsLoader.pas"/>
+			<DCCReference Include="Common.pas"/>
+			<DCCReference Include="IOCTLs.pas"/>
+			<DCCReference Include="CMClasses.pas"/>
+			<DCCReference Include="ProcListing.pas"/>
+			<DCCReference Include="CMHook.pas"/>
+			<DCCReference Include="TEA.pas"/>
+			<DCCReference Include="Encription.pas"/>
+			<DCCReference Include="CMCript.pas"/>
+			<DCCReference Include="langcontrol.pas"/>
+			<DCCReference Include="CMSysUtils.pas"/>
+			<DCCReference Include="UnitMatriz.pas">
+				<Form>frmMatriz</Form>
+			</DCCReference>
+			<DCCReference Include="Inicializador.pas">
+				<Form>/VCLFixPack in &apos;fixes\VCLFixPack.pas&apos;,</Form>
+			</DCCReference>
+			<DCCReference Include="functions.pas"/>
+			<BuildConfiguration Include="Debug">
+				<Key>Cfg_2</Key>
+				<CfgParent>Base</CfgParent>
+			</BuildConfiguration>
+			<BuildConfiguration Include="Base">
+				<Key>Base</Key>
+			</BuildConfiguration>
+			<BuildConfiguration Include="Release">
+				<Key>Cfg_1</Key>
+				<CfgParent>Base</CfgParent>
+			</BuildConfiguration>
+		</ItemGroup>
+		<Import Condition="Exists('$(BDS)\Bin\CodeGear.Delphi.Targets')" Project="$(BDS)\Bin\CodeGear.Delphi.Targets"/>
+		<Import Condition="Exists('$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\8.0\UserTools.proj')" Project="$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\8.0\UserTools.proj"/>
+		<PropertyGroup>
+			<PostBuildEvent><![CDATA[cd $(OUTPUTDIR)
+call script_matriz.bat]]></PostBuildEvent>
+		</PropertyGroup>
+		<ProjectExtensions>
+			<Borland.Personality>Delphi.Personality.12</Borland.Personality>
+			<Borland.ProjectType>VCLApplication</Borland.ProjectType>
+			<BorlandProject>
+				<Delphi.Personality>
+					<Source>
+						<Source Name="MainSource">matriz.dpr</Source>
+					</Source>
+					<Parameters/>
+					<VersionInfo>
+						<VersionInfo Name="IncludeVerInfo">True</VersionInfo>
+						<VersionInfo Name="AutoIncBuild">True</VersionInfo>
+						<VersionInfo Name="MajorVer">3</VersionInfo>
+						<VersionInfo Name="MinorVer">1</VersionInfo>
+						<VersionInfo Name="Release">0</VersionInfo>
+						<VersionInfo Name="Build">673</VersionInfo>
+						<VersionInfo Name="Debug">True</VersionInfo>
+						<VersionInfo Name="PreRelease">False</VersionInfo>
+						<VersionInfo Name="Special">False</VersionInfo>
+						<VersionInfo Name="Private">False</VersionInfo>
+						<VersionInfo Name="DLL">False</VersionInfo>
+						<VersionInfo Name="Locale">1046</VersionInfo>
+						<VersionInfo Name="CodePage">1252</VersionInfo>
+					</VersionInfo>
+					<VersionInfoKeys>
+						<VersionInfoKeys Name="CompanyName">Cheat Matrix</VersionInfoKeys>
+						<VersionInfoKeys Name="FileDescription">CMX</VersionInfoKeys>
+						<VersionInfoKeys Name="FileVersion">3.1.0.673</VersionInfoKeys>
+						<VersionInfoKeys Name="InternalName">Cheat Matrix eXtreme</VersionInfoKeys>
+						<VersionInfoKeys Name="LegalCopyright">Cheat Matrix ® 2007 - 2009</VersionInfoKeys>
+						<VersionInfoKeys Name="LegalTrademarks">www.cheatmatrix.net</VersionInfoKeys>
+						<VersionInfoKeys Name="OriginalFilename">Matriz.exe</VersionInfoKeys>
+						<VersionInfoKeys Name="ProductName">CMX</VersionInfoKeys>
+						<VersionInfoKeys Name="ProductVersion">1.0.0.0</VersionInfoKeys>
+						<VersionInfoKeys Name="Comments">by SkyW4rrior &amp; Di4blo</VersionInfoKeys>
+					</VersionInfoKeys>
+					<Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\bcboffice2k150.bpl">Embarcadero C++Builder Office 2000 Servers Package</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\bcbofficexp150.bpl">Embarcadero C++Builder Office XP Servers Package</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\dcloffice2k150.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\dclofficexp150.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
+					</Excluded_Packages>
+				</Delphi.Personality>
+				<Platforms>
+					<Platform value="Win32">True</Platform>
+				</Platforms>
+			</BorlandProject>
+			<ProjectFileVersion>12</ProjectFileVersion>
+		</ProjectExtensions>
+	</Project>

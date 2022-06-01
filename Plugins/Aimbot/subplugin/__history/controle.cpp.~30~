@@ -1,0 +1,1212 @@
+// ---------------------------------------------------------------------------
+
+#pragma hdrstop
+
+#include "controle.h"
+#include "baseSP.h"
+#include "..\estruturaBot.h"
+#include "..\..\debugUtils.h"
+#include "..\..\drawUtils.h"
+#include "constantes.h"
+// ---------------------------------------------------------------------------
+#pragma package(smart_init)
+
+BITMAP bmp;
+HBITMAP hBmp = NULL;
+char* imagemMenu = NULL;
+
+HDC dcOriginal = 0;
+HDC dcBase = 0;
+HBITMAP bmpBase = 0;
+char* dibBase = 0;
+BITMAPINFO bitmapinfoBase;
+
+TShMatrix *aimbot = new TShMatrix();
+TCalculador *calculador = new TCalculador();
+HANDLE *threads = NULL;
+
+DWORD totalTeste1 = 0;
+DWORD totalTeste2 = 0;
+DWORD totalTeste3 = 0;
+
+char* getMobileName(int valor) {
+	// VMProtectBegin("nomes");
+	switch (valor) {
+	case 0:
+		return "Armor";
+	case 1:
+		return "Mage";
+	case 2:
+		return "Nak";
+	case 3:
+		return "Trico";
+	case 4:
+		return "Big Foot";
+	case 5:
+		return "Boomer";
+	case 6:
+		return "Raon";
+	case 7:
+		return "Lightning";
+	case 8:
+		return "J.D";
+	case 9:
+		return "A.Sate";
+	case 11:
+		return "Turtle";
+	case 10:
+		return "Ice";
+	case 12:
+		return "Grub";
+	case 13:
+		return "Aduka";
+	case 14:
+		return "Kasilddon";
+	case 15:
+		return "J.Frog";
+	case 16:
+	case 125:
+		return "Dragon";
+	case 17:
+	case 209:
+		return "Knight";
+	case 19:
+		return "Phoenix";
+	case 20:
+		return "Maya";
+	case 21:
+		return "Wolf";
+	case 22:
+		return "Tiburon";
+	case 23:
+		return "BlueWhale";
+	case 24:
+		return "Frank";
+	case 25:
+		return "Princess";
+	case 26:
+		return "Assassin";
+	case 27:
+		return "ShadowWalker";
+	case 28:
+		return "Carrior";
+	case 255:
+		return "Random";
+	default:
+		return "Random";
+	}
+	return "";
+	// VMProtectEnd();
+}
+
+void mostrarMenu() {
+	if (aimbot->tempoMenu >= 0) {
+		aimbot->mostrarMenu = true;
+		aimbot->inicioAmostraMenu = GetTickCount();
+	}
+}
+
+char* carregarResource(int &size) {
+	HRSRC hRes = FindResource((HINSTANCE)instancia, MAKEINTRESOURCE(1891), RT_RCDATA);
+	HGLOBAL hMem = LoadResource((HINSTANCE)instancia, hRes);
+	void* pMem = LockResource(hMem);
+	size = SizeofResource((HINSTANCE)instancia, hRes);
+	return (char*)pMem;
+}
+
+//
+// Desenha status
+//
+void DesenharStatus(HDC hdc) {
+	// VMProtectBegin("status");
+	static bool bitmapCarregado = false;
+	__try {
+		bool semDC = (!hdc || hdc == 0);
+		if (semDC) {
+			hdc = CreateDC("DISPLAY", "", "", NULL);
+		}
+
+		if (!hdc)
+			return;
+
+		__try {
+			// Carrega apenas uma vez
+			if (hBmp == NULL || imagemMenu == NULL) {
+				int size = 0;
+				imagemMenu = carregarResource(size);
+				hBmp = Load32bppTgaFromMemory(imagemMenu, size, true);
+				// hBmp = Load32bppTga("stat.dat", true);
+			}
+
+			if (!bitmapCarregado) {
+				GetObject(hBmp, sizeof(BITMAP), &bmp);
+				bitmapCarregado = true;
+			}
+
+			AlphaDraw(hdc, aimbot->posicaoMenu.x, aimbot->posicaoMenu.y, bmp.bmWidth, bmp.bmHeight, hBmp, 75);
+
+			int bk = GetBkMode(hdc);
+			SetBkMode(hdc, TRANSPARENT);
+
+			HFONT Font;
+			HFONT oldFont;
+			Font = CreateFont(12, 7, 0, 0, 4, 0, FALSE, FALSE, 0, 0, 0, DEFAULT_QUALITY, 0, "Arial");
+			oldFont = (HFONT)SelectObject(hdc, Font);
+
+			DWORD cor;
+			cor = GetTextColor(hdc);
+
+			__try {
+				__try {
+					const sx = aimbot->posicaoMenu.x;
+					const sy = aimbot->posicaoMenu.y - 10;
+					SetTextColor(hdc, 0xFFFFFF);
+					// TextOutA(hdc, sx+10, 30, "Cheat Matrix X", 8);
+					if (aimbot) {
+						// #ifdef _DEBUG
+						// char teste[200];
+						// int n = sprintf(teste, "%d - %d - %d - %d - %d     ", aimbot->anguloBot, aimbot->forcaBot, totalTeste1, totalTeste2, totalTeste3);
+						// TextOutA(hdc, sx + 56, sy + 165, teste, n);
+						// #endif
+
+						char *s = getString(1);
+						TextOutA(hdc, sx + 10, sy + 30, s, strlen(s));
+						s = getString(2);
+						TextOutA(hdc, sx + 10, sy + 45, s, strlen(s));
+						s = getString(3);
+						TextOutA(hdc, sx + 10, sy + 60, s, strlen(s));
+						s = getString(4);
+						TextOutA(hdc, sx + 10, sy + 75, s, strlen(s));
+						s = getString(5);
+						TextOutA(hdc, sx + 10, sy + 90, s, strlen(s));
+						s = getString(6);
+						TextOutA(hdc, sx + 10, sy + 105, s, strlen(s));
+						s = getString(7);
+						TextOutA(hdc, sx + 10, sy + 120, s, strlen(s));
+
+#ifdef _DEBUG
+						if (aimbot->modoDebug) {
+							TextOutA(hdc, sx + 10, sy + 150, "Vento: ", 7);
+							TextOutA(hdc, sx + 10, sy + 165, "Gravidade: ", 11);
+							TextOutA(hdc, sx + 10, sy + 180, "Fator: ", 7);
+							TextOutA(hdc, sx + 10, sy + 195, "Var[0]: ", 8);
+							TextOutA(hdc, sx + 10, sy + 210, "Var[1]: ", 8);
+						}
+#endif
+
+						SetTextColor(hdc, 0x00FF00);
+#ifdef _DEBUG
+						char nomeMobileS[50];
+						int sizeNomeMobile = sprintf(nomeMobileS, "%s (%d)", aimbot->nomeMobile, aimbot->mobile);
+						TextOutA(hdc, sx + 60, sy + 30, nomeMobileS, sizeNomeMobile);
+#else
+						TextOutA(hdc, sx + 60, sy + 30, aimbot->nomeMobile, strlen(aimbot->nomeMobile));
+#endif
+						__try {
+							if (aimbot->nomeAlvo)
+								TextOutA(hdc, sx + 50, sy + 45, aimbot->nomeAlvo, strlen(aimbot->nomeAlvo));
+						}
+						__except (1) {
+						}
+
+						s = (aimbot->backShot ? getString(8) : getString(9));
+						TextOutA(hdc, sx + 76, sy + 60, s, strlen(s));
+						switch ((int)aimbot->modoMira) {
+						case 0:
+							s = getString(10);
+							TextOutA(hdc, sx + 50, sy + 75, s, strlen(s));
+							break;
+						case 1:
+							s = getString(11);
+							TextOutA(hdc, sx + 50, sy + 75, s, strlen(s));
+							break;
+						case 2:
+							s = getString(12);
+							TextOutA(hdc, sx + 50, sy + 75, s, strlen(s));
+							break;
+						case 3:
+							s = getString(13);
+							TextOutA(hdc, sx + 50, sy + 75, s, strlen(s));
+							break;
+						case 4:
+							s = getString(14);
+							TextOutA(hdc, sx + 50, sy + 75, s, strlen(s));
+							break;
+						default:
+							TextOutA(hdc, sx + 50, sy + 75, s, strlen(s));
+							break;
+						}
+
+						s = (aimbot->modoEspelho ? getString(16) : getString(17));
+						TextOutA(hdc, sx + 60, sy + 90, s, strlen(s));
+						s = (aimbot->autoShot ? getString(8) : getString(9));
+						TextOutA(hdc, sx + 76, sy + 105, s, strlen(s));
+						if (aimbot->ligado) {
+							s = getString(18);
+							TextOutA(hdc, sx + 60, sy + 120, s, strlen(s));
+						}
+						else {
+							s = getString(19);
+							TextOutA(hdc, sx + 60, sy + 120, s, strlen(s));
+						}
+
+#ifdef _DEBUG
+						if (aimbot->modoDebug) {
+							char teste[30];
+							int n = sprintf(teste, "%f   ", aimbot->maya.faseBola1);
+							TextOutA(hdc, sx + 56, 150, teste, n);
+							n = sprintf(teste, "%f   ", aimbot->maya.faseBola2);
+							TextOutA(hdc, sx + 80, 165, teste, n);
+							n = sprintf(teste, "%f   ", aimbot->maya.pico);
+							TextOutA(hdc, sx + 56, 180, teste, n);
+							n = sprintf(teste, "%d   ", aimbot->intVars[0]);
+							TextOutA(hdc, sx + 65, 195, teste, n);
+							n = sprintf(teste, "%d   ", aimbot->intVars[1]);
+							TextOutA(hdc, sx + 65, 210, teste, n);
+						}
+#endif
+
+					}
+				}
+				__except (1) {
+				}
+			}
+			__finally {
+				SelectObject(hdc, oldFont);
+				SetTextColor(hdc, cor);
+
+				DeleteObject(oldFont);
+				DeleteObject(Font);
+
+				SetBkMode(hdc, bk);
+			}
+		}
+		__finally {
+			if (semDC)
+				DeleteDC(hdc);
+		}
+	}
+	__except (1) {
+		debugar("Erro 1212");
+	}
+	// VMProtectEnd();
+}
+
+//
+// Atualiza os valores do aim lendo da memoria
+//
+void __stdcall PASCAL AtualizarValores() {
+	// VMProtectBegin("update");
+	// debugar("Atualizando valores no subplugin de %s",Hack_Name);
+	__try {
+		//
+		// Indice do Jogador
+		if (aimbot->enderecos[4] > 0)
+			aimbot->indiceBot = *((PBYTE)(aimbot->enderecos[4]));
+
+		//
+		// Força do Vento
+		if (aimbot->enderecos[12] > 0) {
+			aimbot->forcaVento = *((PBYTE)(aimbot->enderecos[12]));
+		}
+
+		if (aimbot->enderecos[13] > 0)
+			aimbot->anguloVento = *((PWORD)(aimbot->enderecos[13]));
+
+		if (aimbot->enderecos[0] > 0)
+			if (aimbot->autoMobile)
+				aimbot->mobile = *((PBYTE)(aimbot->enderecos[0]));
+
+		aimbot->indiceMobile = MobileToIndex(aimbot->mobile);
+
+		aimbot->nomeMobile = getMobileName(aimbot->mobile);
+		if (aimbot->alvoID != aimbot->ultimoAlvo) {
+			aimbot->ultimoAlvo = aimbot->alvoID;
+			aimbot->nomes = (NOME_BOT*)(aimbot->enderecos[8]);
+			aimbot->nomeAlvo = (char*)&aimbot->nomes[aimbot->alvoID % 8];
+		}
+
+		if (aimbot->enderecos[5] > 0) {
+			aimbot->inclinacaoBot = *((PWORD)(aimbot->enderecos[5] + (((DADOS_PONTEIRO*)base->ponteiros->get(5))->range * aimbot->indiceBot) + 8));
+
+			for (int i = 0; i < 8; i++) {
+				aimbot->semiPosicaoBot[i].x = *((PWORD)(aimbot->enderecos[5] + (((DADOS_PONTEIRO*)base->ponteiros->get(5))->range * i)));
+				aimbot->semiPosicaoBot[i].y = *((PWORD)(aimbot->enderecos[5] + (((DADOS_PONTEIRO*)base->ponteiros->get(5))->range * i) + 4));
+			}
+		}
+
+		if (aimbot->enderecos[6] > 0) {
+			char indexInGame = *((PBYTE)(aimbot->enderecos[6]));
+			aimbot->renderizar = (indexInGame != 0);
+			// ((indexInGame == 3) || (indexInGame == 11));
+		}
+
+		if (aimbot->enderecos[16] > 0)
+			aimbot->semiDireita = *((PBYTE)(aimbot->enderecos[16] + (aimbot->indiceBot * ((DADOS_PONTEIRO*)base->ponteiros->get(5))->range)));
+
+		if (aimbot->enderecos[9] > 0)
+			aimbot->semiForcaBot = *((PDWORD)(aimbot->enderecos[9]));
+
+		aimbot->camera = aimbot->GetCameraPos();
+
+		if (aimbot->enderecos[15] > 0)
+			memcpy(&aimbot->times[0], (PBYTE)(aimbot->enderecos[15]), 8);
+
+		if (aimbot->enderecos[11] > 0)
+			memcpy(&aimbot->flags[0], (PBYTE)(aimbot->enderecos[11]), 8);
+	}
+	__except (1) {
+	}
+	// VMProtectEnd();
+}
+
+void __stdcall PASCAL ProcessarComando(COMANDO_SUBPLUGIN *comando) {
+	// VMProtectBegin("comando");
+	__try {
+		// debugar("Processando comando no subpl de %s", Hack_Name);
+		if (comando != NULL) {
+			switch (comando->tipo) {
+				//
+				// Ligar / Desligar
+			case TP_LIGAR: {
+					if (comando->valor == NULL)
+						aimbot->ligado = !aimbot->ligado;
+					else
+						aimbot->ligado = (bool)comando->valor[0];
+
+					mostrarMenu();
+				} break;
+
+			case TP_MENU_POS: {
+					if (comando->valor != NULL) {
+						aimbot->posicaoMenu.x = ((POINT*)&comando->valor[0])->x;
+						aimbot->posicaoMenu.y = ((POINT*)&comando->valor[0])->y;
+					}
+					mostrarMenu();
+				} break;
+
+				//
+				// Modo de mira - Slice/Auto/Close/Far/Mouse/Random
+			case TP_PERSONALIZAR_MODO_MIRA: {
+					if (comando->valor == NULL)
+						aimbot->modoMira = 0;
+					else
+						aimbot->modoMira = (char)comando->valor[0];
+
+					mostrarMenu();
+				} break;
+
+			case TP_PROXIMO_MODO_MIRA: {
+					aimbot->modoMira = (aimbot->modoMira + 1) % 6;
+					mostrarMenu();
+				} break;
+
+			case TP_MODO_MIRA_ANTERIOR: {
+					aimbot->modoMira = (aimbot->modoMira - 1 + 6) % 6;
+					mostrarMenu();
+				} break;
+
+			case TP_MODO_JUDAS: {
+					if (comando->valor == NULL)
+						aimbot->acertarAmigos = 0;
+					else
+						aimbot->acertarAmigos = (bool)comando->valor[0];
+					mostrarMenu();
+				} break;
+
+				//
+			case TP_MODO_GDI: {
+					if (comando->valor == NULL)
+						aimbot->modoGDI = 0;
+					else
+						aimbot->modoGDI = (bool)comando->valor[0];
+					mostrarMenu();
+				} break;
+
+				//
+			case TP_LINHA_VERTICAL: {
+					if (comando->valor == NULL)
+						aimbot->linhaVertical = 0;
+					else
+						aimbot->linhaVertical = (bool)comando->valor[0];
+				} break;
+
+				//
+			case TP_OPCAO_TIRO: {
+					OPCOES_TIRO *opcao = (OPCOES_TIRO*)&comando->valor[0];
+					if (opcao->mobile >= 0 && opcao->mobile < 30)
+						memcpy(&aimbot->opcoesTiro[opcao->mobile], &opcao->tiroEspecial, sizeof aimbot->opcoesTiro[opcao->mobile]);
+				} break;
+
+				//
+			case TP_MODO_DEBUG: {
+#ifdef _DEBUG
+					aimbot->modoDebug = (bool)comando->valor[0];
+#endif
+				} break;
+
+				//
+			case TP_OPCAO_COR: {
+					if (comando->valor != NULL) {
+						OPCAO_COR *opcor = (OPCAO_COR*)&comando->valor[0];
+						aimbot->setConfiguracaoLinha(opcor->indice, opcor->cor, 0);
+						// debugar("linha %d: %X", opcor->indice, aimbot->linhas[opcor->indice].cor);
+					}
+				} break;
+
+				//
+				// Modo de mira - Slice/Auto/Close/Far/Mouse/Random
+			case TP_TEMPO_MENU: {
+					if (comando->valor != NULL) {
+						aimbot->tempoMenu = comando->valor[0];
+						// debugar("%d", aimbot->tempoMenu);
+					}
+					mostrarMenu();
+				} break;
+
+				//
+				// Modo de mira - Slice/Auto/Close/Far/Mouse/Random
+			case TP_ESPESSURA_LINHA: {
+					if (comando->valor == NULL) {
+						int qtdLinhas = (sizeof aimbot->linhas) / (sizeof aimbot->linhas[0]);
+						for (int i = 0; i < qtdLinhas; i++) {
+							aimbot->linhas[i].espessura = 1;
+						}
+					}
+					else {
+						int qtdLinhas = (sizeof aimbot->linhas) / (sizeof aimbot->linhas[0]);
+						for (int i = 0; i < qtdLinhas; i++) {
+							aimbot->linhas[i].espessura = comando->valor[0];
+						}
+					}
+				} break;
+			}
+		}
+	}
+	__except (1) {
+		debugar("Erro 7271");
+	}
+	// VMProtectEnd();
+}
+
+DWORD WINAPI ThreadMelhorForca(LPVOID lpParam) {
+	while (WaitForSingleObject(base->closeFlag, 10) != WAIT_OBJECT_0) {
+		__try {
+			if (aimbot->ligado && aimbot->modoMira != AM_Slice) {
+				aimbot->melhorForca = calculador->calcularMelhor(base->closeFlag);
+				aimbot->forcaBot = aimbot->melhorForca.forca;
+			}
+		}
+		__except (1) {
+			debugar("Erro 1282");
+		}
+	}
+}
+
+double efeitoAnterior = 0;
+double forcaAnterior = 0;
+double mobileAnterior = 0;
+
+DWORD WINAPI ThreadProcessamento(LPVOID lpParam) {
+	// //VMProtectBegin("processa");
+	while (WaitForSingleObject(base->closeFlag, 50) != WAIT_OBJECT_0) {
+		// HDC dc = CreateDC("DISPLAY", "", "", NULL);
+		// if (dc == 0)
+		// continue;
+		//
+		// __try {
+		// char teste[100];
+		// int n = sprintf(teste, "teste");
+		// TextOut(dc, 10, 90, teste, n);
+		// }
+		// __finally {
+		// DeleteDC(dc);
+		// }
+
+		__try {
+			totalTeste3 = ((totalTeste3 + 1) & 0xFFFFFFFF);
+			if (aimbot->tempoMenu < 0 || (aimbot->mostrarMenu && aimbot->tempoMenu != 0 && (GetTickCount() - aimbot->inicioAmostraMenu) > aimbot->tempoMenu * 1000))
+				aimbot->mostrarMenu = false;
+
+			if (aimbot->movendoMenu) {
+				GetCursorPos(&aimbot->posicaoMenu);
+			}
+			if (aimbot->ligado) {
+				bool valorDireita = aimbot->semiDireita; // (i == 1);
+				valorDireita = (aimbot->backShot ? !valorDireita : valorDireita);
+				valorDireita = ((aimbot->mobile == 2 || aimbot->mobile == 13) ? !valorDireita : valorDireita);
+				aimbot->direita = valorDireita;
+				// if(mobileAnterior != aimbot->mobile){
+				// mobileAnterior = aimbot->mobile;
+				// debugar("mobile: %d", aimbot->mobile);
+				// }
+
+				// Pega o tipo de tiro (S1, S2, SS) por pixel
+				aimbot->tiro = GetShotMode(aimbot->interfaceJogo);
+				// debugar("Tiro: %d", aimbot->tiro);
+				aimbot->interfaceJogo = GetInterfaceGB();
+				aimbot->posicaoBot = aimbot->PosicaoBot();
+				aimbot->posicaoAlvo = aimbot->PosicaoAlvo();
+
+				TEfeitoVento efeito = effects[aimbot->indiceMobile];
+				// TEfeitoVento efeitoFix; // = getFixVento(indiceMobile);
+				// efeito.efeito += efeitoFix.efeito;
+				// efeito.gravidade += efeitoFix.gravidade;
+				// efeitoVento = efeito;
+#ifdef _DEBUG
+				aimbot->gravidadeGB = efeito.gravidade + ((aimbot->modoDebug) ? aimbot->maya.faseBola2 : 0.0f);
+				aimbot->efeitoVento = efeito.efeito + ((aimbot->modoDebug) ? aimbot->maya.faseBola1 : 0.0f);
+#else
+				aimbot->gravidadeGB = efeito.gravidade;
+				aimbot->efeitoVento = efeito.efeito;
+#endif
+				// debugar("%d - %d - %f - %f - %f",aimbot->modoDebug, aimbot->indiceMobile, efeito.gravidade, aimbot->gravidadeGB, aimbot->efeitoVento);
+				////if(efeitoAnterior != efeito.efeito){
+				// efeitoAnterior = efeito.efeito;
+				// debugar("efeito: %f / %f", efeitoAnterior, aimbot->gravidadeGB);
+				// debugar("gravidade: %f / %f", efeito.gravidade, aimbot->efeitoVento);
+				// }
+
+				// Pega angulo do bot
+				aimbot->anguloBot = aimbot->GetBotAngle();
+				// Se for slice pega a força de acordo com a barra
+				if (aimbot->modoMira == AM_Slice) {
+					int k = (aimbot->interfaceJogo == 1 ? 389 : 241);
+					int power = 0;
+					DWORD address = 0;
+					// aimbot->estadoBot.forca = (aimbot->semiForcaBot - k);
+					aimbot->forcaBot = (aimbot->semiForcaBot - k);
+
+					// if(forcaAnterior != aimbot->forcaBot){
+					// forcaAnterior = aimbot->forcaBot;
+					// debugar("forca: %d / %d", aimbot->semiForcaBot, aimbot->forcaBot);
+					// }
+				}
+				else {
+
+					aimbot->forcaBot = aimbot->melhorForca.forca;
+				}
+				// HDC dc = CreateDC("DISPLAY", "", "", NULL);
+				// if(dc == 0) return;
+				//
+				// __try{
+				// char teste[100];
+				// int n = sprintf(teste, "%d   %d   %d",selfIndex, BotInfos->semiPosicaoBot[selfIndex].x , BotInfos->semiPosicaoBot[selfIndex].y);
+				// TextOut(dc, 10, 90, teste, n);
+				// }__finally{
+				// DeleteDC(dc);
+				// }
+			}
+		}
+		__except (1) {
+			debugar("Erro no processamento! [2]");
+		}
+	}
+	debugar("exiting...");
+	return 0;
+	// //VMProtectEnd();
+}
+
+void desenharTemp() {
+	HDC dc = 0;
+	__try {
+		dc = CreateDC("DISPLAY", "", "", NULL);
+		if (dc == 0)
+			return;
+
+		HBITMAP hBitmap;
+		int width = 800; // GetSystemMetrics(SM_CXSCREEN);
+		int height = 600; // GetSystemMetrics(SM_CYSCREEN);
+
+		HDC cdc = CreateCompatibleDC(dc);
+		__try {
+			if (!bmpBase) {
+				dcOriginal = CreateDC("DISPLAY", "", "", NULL);
+				bitmapinfoBase.bmiHeader.biSize = sizeof(BITMAPINFOHEADER);
+				bitmapinfoBase.bmiHeader.biWidth = 800;
+				bitmapinfoBase.bmiHeader.biHeight = 600; /* top-down */
+				bitmapinfoBase.bmiHeader.biPlanes = 1;
+				bitmapinfoBase.bmiHeader.biBitCount = 16;
+				bitmapinfoBase.bmiHeader.biCompression = BI_RGB;
+				bitmapinfoBase.bmiHeader.biSizeImage = 0;
+				bitmapinfoBase.bmiHeader.biClrUsed = 256;
+				bitmapinfoBase.bmiHeader.biClrImportant = 256; ;
+				bmpBase = CreateDIBSection(dcBase, &bitmapinfoBase, DIB_RGB_COLORS, (void**)&dibBase, 0, 0);
+			}
+			HBITMAP bmp = CreateCompatibleBitmap(dc, width, height);
+			HBITMAP obmp = (HBITMAP)SelectObject(cdc, bmp);
+			__try {
+				RECT rect = {0, 0, 800, 600};
+				HBRUSH brush = CreateSolidBrush(0xFFFFFF);
+				FillRect(cdc, &rect, brush);
+
+				__try {
+					if (aimbot->mostrarMenu || aimbot->movendoMenu)
+						DesenharStatus(cdc);
+
+					if (aimbot->renderizar) {
+						aimbot->camera = aimbot->GetCameraPos();
+						aimbot->fillPoints(cdc);
+					}
+				}
+				__except (1) {
+					debugar("Erro 0148");
+				}
+
+				long tcor = SetTextColor(cdc, 0xFF0000);
+				long cor = SetBkColor(cdc, 0xFFFFFF);
+				TextOut(cdc, 10, 10, "Teste", 5);
+				SetBkColor(cdc, cor);
+				SetTextColor(cdc, tcor);
+
+				HDC bdc = CreateCompatibleDC(dc);
+				__try {
+					SelectObject(bdc, bmpBase);
+					BitBlt(bdc, 0, 0, width, height, cdc, 0, 0, SRCCOPY);
+					// SRCAND
+				}
+				__finally {
+					DeleteDC(bdc);
+				}
+			}
+			__finally {
+				SelectObject(cdc, obmp);
+			}
+		}
+		__finally {
+			DeleteDC(cdc);
+		}
+	}
+	__finally {
+		if (dc)
+			DeleteDC(dc);
+	}
+}
+
+//
+// Escreve na tela
+//
+bool desenhando = false;
+
+void __stdcall PASCAL Desenhar(HDC dc, char tipoDesenho) {
+	// VMProtectBegin("desenha");
+	if (!desenhando)
+		desenhando = true;
+	else
+		return;
+
+	__try {
+		if ((tipoDesenho == TD_DDRAW || tipoDesenho == TD_UPDATE)  && (aimbot->mostrarMenu || aimbot->movendoMenu)) {
+
+			DesenharStatus(dc);
+		}
+
+		if ((bool)tipoDesenho == aimbot->modoGDI) {
+			//debugar("desenhando %d - %d", (bool)tipoDesenho, aimbot->modoGDI);
+			__try {
+			//debugar("renderizando %d",*((PBYTE)(aimbot->enderecos[6])));
+				if (aimbot->renderizar) {
+
+					aimbot->camera = aimbot->GetCameraPos();
+					if (dc == 0)
+						aimbot->fillPoints();
+					else
+						aimbot->fillPoints(dc);
+				}
+			} __except (1) {
+				debugar("Erro 0148");
+			}
+		}
+
+		/* if (tipoDesenho == TD_DDRAW || tipoDesenho == TD_GDI) {
+		 HDC dcn = 0;
+		 __try {
+		 dc = CreateDC("DISPLAY", "", "", NULL);
+		 if (dc == 0)
+		 return;
+
+		 //debugar("Copiando...");
+		 if (dcBase) {
+		 HDC cdc = CreateCompatibleDC(dc);
+		 __try {
+		 SelectObject(cdc, bmpBase); // SRCAND   GetObject(cdc, sizeof(bmpBase), bmpBase);
+		 BitBlt(dc, 0, 0, 800, 600, cdc, 0, 0, SRCAND); // SRCAND
+		 }
+		 __finally {
+		 DeleteDC(cdc);
+		 }
+		 }
+		 }
+		 __finally {
+		 if (dcn)
+		 DeleteDC(dcn);
+		 }
+		 }
+		 else {
+		 //debugar("Atualizando...");
+		 desenharTemp();
+		 } */
+		/*
+		 if (tipoDesenho == TD_DDRAW && (aimbot->mostrarMenu || aimbot->movendoMenu)) {
+		 DesenharStatus(dc);
+		 }
+
+		 if ((bool)tipoDesenho == aimbot->modoGDI) {
+		 __try {
+		 if (!aimbot->modoDebug && aimbot->renderizar) {
+		 aimbot->camera = aimbot->GetCameraPos();
+		 if (dc == 0)
+		 aimbot->fillPoints();
+		 else
+		 aimbot->fillPoints(dc);
+		 }
+		 }
+		 __except (1) {
+		 }
+		 } */
+	}
+	__finally {
+		desenhando = false;
+	}
+	// VMProtectEnd();
+}
+
+void __fastcall setarConfiguracao(int tipo, char* buffer, int len) {
+	// VMProtectBegin("cofig");
+	// debugar("[P] Setando configuracao");
+	__try {
+		COMANDO_SUBPLUGIN *comando = (COMANDO_SUBPLUGIN*)malloc(8 + len);
+		__try {
+			memset(comando, 0, 8 + len);
+			comando->tipo = tipo;
+			memcpy(&comando->valor, buffer, len);
+			if ((DWORD)base->metodoEnviar && base->cliente)
+				base->metodoEnviar(*(SOCKET*)base->cliente, TP_COMANDO, (char*)comando, 8 + len);
+		}
+		__finally {
+			free(comando);
+		}
+	}
+	__except (1) {
+		debugar("Erro 1182");
+	}
+	// VMProtectEnd();
+}
+
+void __stdcall PASCAL ProcessarAtalho(int id) {
+	// VMProtectBegin("atalho");
+	__try {
+		// debugar("ativado atalho %d", id);
+		switch (id) {
+		case 1: {
+				aimbot->ligado = !aimbot->ligado;
+				setarConfiguracao(TP_LIGAR, (char*) & aimbot->ligado, 1);
+				mostrarMenu();
+			} break;
+		case 3: {
+				aimbot->autoMobile = false;
+				aimbot->ProximoMobile();
+				mostrarMenu();
+			} break;
+		case 4: {
+				aimbot->autoMobile = false;
+				aimbot->MobileAnterior();
+				mostrarMenu();
+			} break;
+		case 5: {
+				aimbot->ProximoAlvo();
+				aimbot->modoMira = AM_Auto;
+				mostrarMenu();
+			} break;
+		case 6: {
+				aimbot->AlvoAnterior();
+				aimbot->modoMira = AM_Auto;
+				mostrarMenu();
+			} break;
+		case 7: {
+				aimbot->ProximaMira();
+				setarConfiguracao(TP_PROXIMO_MODO_MIRA, (char*) & aimbot->modoMira, 1);
+				mostrarMenu();
+			} break;
+		case 8: {
+				aimbot->MiraAnterior();
+				setarConfiguracao(TP_MODO_MIRA_ANTERIOR, (char*) & aimbot->modoMira, 1);
+				mostrarMenu();
+			} break;
+			// Liga/Desliga auto mobile
+		case 9: {
+				aimbot->autoMobile = true;
+				mostrarMenu();
+			} break;
+			// Backshot
+		case 10: {
+				aimbot->backShot = !aimbot->backShot;
+				mostrarMenu();
+			} break;
+		case 11: {
+				ScreenCapture(0, 0, 0, 0, base->diretorioDllMae);
+			} break;
+		case 12: {
+				aimbot->movendoMenu = !aimbot->movendoMenu;
+				if (!aimbot->movendoMenu) {
+					setarConfiguracao(TP_MENU_POS, (char*) & aimbot->posicaoMenu, sizeof aimbot->posicaoMenu);
+				}
+				mostrarMenu();
+			} break;
+			// Ativa/Desativa amostragem da linha de tornado na posição do mouse
+		case 15: {
+				aimbot->linhaVertical = !aimbot->linhaVertical;
+			} break;
+			// Marca tornado/espelho
+		case 20: {
+				POINT cursor;
+				GetCursorPos(&cursor);
+				aimbot->tornados.setaLinha(cursor.x + aimbot->camera.x, aimbot->modoEspelho);
+			} break;
+			// Remove uma marcação de tornado
+		case 25: {
+				POINT cursor;
+				GetCursorPos(&cursor);
+				aimbot->tornados.deletar(cursor.x + aimbot->camera.x);
+				return;
+			} break;
+			// Limpa o array de tornados
+		case 26: {
+				aimbot->tornados.limpar();
+				return;
+			} break;
+			// Alterna modo espelho/tornado
+		case 30: {
+				aimbot->modoEspelho = !aimbot->modoEspelho;
+				mostrarMenu();
+			} break;
+#ifdef _DEBUG
+		case 31: {
+				if (aimbot->modoDebug) {
+					aimbot->maya.faseBola1 += (aimbot->maya.pico == 0) ? 1 : 0.01 * (float)aimbot->maya.pico;
+					mostrarMenu();
+				}
+			} break;
+		case 32: {
+				if (aimbot->modoDebug) {
+					aimbot->maya.faseBola1 -= (aimbot->maya.pico == 0) ? 1 : 0.01 * (float)aimbot->maya.pico;
+					mostrarMenu();
+				}
+			} break;
+		case 33: {
+				if (aimbot->modoDebug) {
+					aimbot->maya.faseBola2 += (aimbot->maya.pico == 0) ? 1 : 0.01 * (float)aimbot->maya.pico;
+					mostrarMenu();
+				}
+			} break;
+		case 34: {
+				if (aimbot->modoDebug) {
+					aimbot->maya.faseBola2 -= (aimbot->maya.pico == 0) ? 1 : 0.01 * (float)aimbot->maya.pico;
+					mostrarMenu();
+				}
+			} break;
+#endif
+			// Auto-Shot
+		case 35: {
+				aimbot->autoShot = !aimbot->autoShot;
+				if (!aimbot->autoShot)
+					pararTiro(0);
+				// mostrarMenu();
+			} break;
+		case 36: {
+				aimbot->modoMira = AM_Auto;
+				aimbot->alvoID = aimbot->alvoManualID;
+				aimbot->posicaoAlvo = aimbot->semiPosicaoBot[aimbot->alvoID];
+				setarConfiguracao(TP_PROXIMO_MODO_MIRA, (char*) & aimbot->modoMira, 1);
+				// aimbot->maya.delayBolas = (aimbot->maya.delayBolas == 0)?10:aimbot->maya.delayBolas * 10;
+				// mostrarMenu();
+			} break;
+#ifdef _DEBUG
+		case 37: {
+				if (aimbot->modoDebug) {
+					aimbot->maya.pico = (aimbot->maya.pico == 0) ? 1 : aimbot->maya.pico * 10;
+					mostrarMenu();
+				}
+			} break;
+		case 38: {
+				if (aimbot->modoDebug) {
+					aimbot->maya.pico = (aimbot->maya.pico == 0) ? 1 : aimbot->maya.pico / 10;
+					mostrarMenu();
+				}
+			} break;
+		case 39: {
+				if (aimbot->modoDebug) {
+					aimbot->intVars[0]++;
+					mostrarMenu();
+				}
+			} break;
+		case 40: {
+				if (aimbot->modoDebug) {
+					aimbot->intVars[0]--;
+					mostrarMenu();
+				}
+			} break;
+		case 41: {
+				if (aimbot->modoDebug) {
+					aimbot->intVars[1]++;
+					mostrarMenu();
+				}
+			} break;
+		case 42: {
+				if (aimbot->modoDebug) {
+					aimbot->intVars[1]--;
+					mostrarMenu();
+				}
+			} break;
+		case 43: {
+				if (aimbot->modoDebug) {
+					aimbot->floatVars[0] += (aimbot->maya.pico == 0) ? 1 : 0.01 * (float)aimbot->maya.pico;
+					mostrarMenu();
+				}
+			} break;
+		case 44: {
+				if (aimbot->modoDebug) {
+					aimbot->floatVars[0] -= (aimbot->maya.pico == 0) ? 1 : 0.01 * (float)aimbot->maya.pico;
+					mostrarMenu();
+				}
+			} break;
+		case 45: {
+				if (aimbot->modoDebug) {
+					aimbot->floatVars[1] += (aimbot->maya.pico == 0) ? 1 : 0.01 * (float)aimbot->maya.pico;
+					mostrarMenu();
+				}
+			} break;
+		case 46: {
+				if (aimbot->modoDebug) {
+					aimbot->floatVars[1] -= (aimbot->maya.pico == 0) ? 1 : 0.01 * (float)aimbot->maya.pico;
+					mostrarMenu();
+				}
+			} break;
+#endif
+		default:
+			break;
+		}
+	}
+	__except (1) {
+		debugar("Erro 7272");
+	}
+	// VMProtectEnd();
+}
+
+//
+// Atualiza os endereços de acordo com os ponteiros
+//
+static HMODULE dinput = 0;
+
+void __stdcall PASCAL AtualizarEnderecos() {
+	// VMProtectBegin("address");
+	if (!dinput) {
+		dinput = GetModuleHandleA("dinput8.dll");
+	}
+
+	totalTeste1 = ((totalTeste1 + 1) & 0xFFFFFFFF);
+	if (aimbot && pluginAtivo()) {
+		totalTeste2 = ((totalTeste2 + 1) & 0xFFFFFFFF);
+		__try {
+			int quantidadePonteiros = base->ponteiros->size();
+			// debugar("Ponteiros: %d", quantidadePonteiros);
+			for (int i = 0; i < quantidadePonteiros; i++) {
+				DADOS_PONTEIRO *ponteiro = (DADOS_PONTEIRO*)base->ponteiros->get(i);
+				if (ponteiro) {
+					__try {
+						DWORD endereco = 0;
+						// O endereço do autoshot setamos na mão
+						if (i != 17) {
+							if (ponteiro->ponteiro && !IsBadReadPtr((void*)ponteiro->ponteiro, 4))
+								endereco = *(DWORD*)ponteiro->ponteiro;
+							aimbot->enderecos[i] = (endereco + ponteiro->offset);
+						}
+						else if (versaoOS) {
+							switch (versaoOS->OS) {
+							case WIN_7:
+							case WIN_SERVER: {
+									aimbot->enderecos[i] = ((DWORD)dinput + 0x22B99);
+								} break;
+							case WIN_VISTA: {
+									aimbot->enderecos[i] = ((DWORD)dinput + 0x259A1);
+								} break;
+							default: {
+									aimbot->enderecos[i] = ((DWORD)dinput + 0x24481);
+								} break;
+							}
+						}
+					}
+					__except (1) {
+						debugar("Erro 7780 %d [%X / %X]", i, ponteiro->ponteiro, ponteiro->offset);
+					}
+					// debugar("Endereço %d: %X [%X / %X]", i , aimbot->enderecos[i], ponteiro->ponteiro, ponteiro->offset, ponteiro->size);
+				}
+				else {
+					// debugar("Endereço %d: ------", i);
+				}
+			}
+		}
+		__except (1) {
+			debugar("Erro 8899");
+		}
+
+		// debugar(" ");
+	}
+	// VMProtectEnd();
+}
+
+void pararTiro(int delay) {
+	// VMProtectBegin("stopshot");
+	if (delay)
+		Sleep(delay);
+	int valor = 0;
+	__try {
+
+		if (aimbot && aimbot->enderecos[17]) {
+			unsigned long old, clean;
+			VirtualProtect((char*)aimbot->enderecos[17], 1, PAGE_EXECUTE_READWRITE, &old);
+			*(char*)aimbot->enderecos[17] = 0;
+			VirtualProtect((char*)aimbot->enderecos[17], 1, old, &clean);
+		}
+	}
+	__except (1) {
+		debugar("Erro 5555");
+	}
+	// VMProtectEnd();
+}
+
+void ErrorExit(LPTSTR lpszFunction) {
+	// Retrieve the system error message for the last-error code
+
+	LPVOID lpMsgBuf;
+	LPVOID lpDisplayBuf;
+	DWORD dw = GetLastError();
+
+	FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS, NULL, dw, MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), (LPTSTR) & lpMsgBuf, 0, NULL);
+
+	// Display the error message and exit the process
+
+	lpDisplayBuf = (LPVOID)LocalAlloc(LMEM_ZEROINIT, (lstrlen((LPCTSTR)lpMsgBuf) + lstrlen((LPCTSTR)lpszFunction) + 40)*sizeof(TCHAR));
+	debugar("%s failed with error %d: %s", lpszFunction, dw, lpMsgBuf);
+
+	LocalFree(lpMsgBuf);
+	LocalFree(lpDisplayBuf);
+	// ExitProcess(dw);
+}
+
+char memoria1[1024];
+char memoria2[1024];
+
+DWORD WINAPI ThreadAutoShot(LPVOID lpParam) {
+	// VMProtectBegin("auto");
+	memset(&memoria1[0], 0, 1024);
+	memset(&memoria2[0], 0, 1024);
+	while (WaitForSingleObject(base->closeFlag, 6) != WAIT_OBJECT_0) {
+		__try {
+			HDC dc = CreateDC("DISPLAY", "", "", NULL);
+			if (dc == 0 || !aimbot)
+				continue;
+
+			__try {
+				if (!aimbot->ligado) {
+					if (aimbot->autoShot || aimbot->tiroLiberado || aimbot->atirando) {
+						pararTiro(0);
+						aimbot->autoShot = false;
+						aimbot->tiroLiberado = false;
+						aimbot->atirando = false;
+					}
+					continue;
+				}
+
+				unsigned long old, clean;
+
+				__try {
+					if (aimbot->autoShot /* && aimbot->tiroLiberado */ && aimbot->enderecos[17]
+						/* && !IsBadWritePtr((void*)aimbot->enderecos[17], 1) */) {
+						*(char*)aimbot->enderecos[17] = -128;
+					}
+				}
+				__except (1) {
+					debugar(getString(20));
+				}
+
+				__try {
+					//
+					// Posição medida pelo AIM na barra de força
+					int posX = 0;
+					int posI = 0;
+					if (aimbot->interfaceJogo == 1) {
+						posX = 389 + aimbot->forcaBot - 6;
+						// - BotInfos->maya.faseBola2;
+						posI = 389 + aimbot->forcaBot - 10;
+					}
+					else {
+						posX = 241 + aimbot->forcaBot - 6;
+						// - BotInfos->maya.faseBola2;
+						posI = 241 + aimbot->forcaBot - 10;
+					}
+
+					//
+					// Pega pixel em 4 posições verticais, pra evitar interferência
+					// do mouse
+					//
+					int c1 = CMGetPixel(dc, posX, 583);
+					int c2 = CMGetPixel(dc, posX, 565);
+					int c3 = CMGetPixel(dc, posX, 581);
+					int c4 = CMGetPixel(dc, posX, 570);
+
+					bool vermelho = (isVermelho(c1) || isVermelho(c2) || isVermelho(c3) || isVermelho(c4));
+					if (vermelho) {
+						if (aimbot->autoShot && aimbot->atirando) {
+							aimbot->atirando = false;
+							// debugar("pixels: %X %X %X %X", c1, c2, c3,c4);
+							aimbot->autoShot = false;
+							aimbot->tiroLiberado = false;
+							aimbot->atirando = false;
+							pararTiro(42);
+
+							Sleep(2000);
+							aimbot->tiroLiberado = true;
+						}
+					}
+					else if (aimbot->autoShot) {
+						if (!aimbot->atirando) {
+							// debugar("pixels: %X %X %X %X", c1, c2, c3,c4);
+							// debugar("liberando tiro...");
+						}
+
+						aimbot->atirando = true;
+						aimbot->tiroLiberado = true;
+					}
+				}
+				__except (1) {
+				}
+			}
+			__finally {
+				if (dc)
+					DeleteDC(dc);
+			}
+		}
+		__except (1) {
+			debugar("Erro 1242");
+		}
+	}
+	// VMProtectEnd();
+}
+
+void __stdcall PASCAL Iniciar() {
+	if (!versaoOS) {
+		versaoOS = new OS_INFO;
+		*versaoOS = GetOS();
+	}
+
+	// debugar("Iniciando subpl de %s", Hack_Name);
+	aimbot = new TShMatrix();
+	threads = new HANDLE[3];
+	threads[0] = CreateThread(NULL, 0, ThreadProcessamento, NULL, 0, NULL);
+	SetThreadContext(threads[0], (CONTEXT*)THREAD_PRIORITY_BELOW_NORMAL);
+	threads[1] = CreateThread(NULL, 0, ThreadMelhorForca, NULL, 0, NULL);
+	SetThreadContext(threads[1], (CONTEXT*)THREAD_PRIORITY_BELOW_NORMAL);
+	threads[2] = CreateThread(NULL, 0, ThreadAutoShot, NULL, 0, NULL);
+	SetThreadContext(threads[2], (CONTEXT*)THREAD_PRIORITY_BELOW_NORMAL);
+}

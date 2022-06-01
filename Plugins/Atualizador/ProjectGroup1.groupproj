@@ -1,0 +1,72 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{C6CF364B-D2B9-4E19-8A5F-069FBC12A408}</ProjectGuid>
+		</PropertyGroup>
+		<ItemGroup>
+			<Projects Include="atualizador.cbproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="subplugin\spa.cbproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\matriz.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\Loader\msvcrt36.cbproj">
+				<Dependencies/>
+			</Projects>
+		</ItemGroup>
+		<ProjectExtensions>
+			<Borland.Personality>Default.Personality.12</Borland.Personality>
+			<Borland.ProjectType/>
+			<BorlandProject>
+				<Default.Personality/>
+			</BorlandProject>
+		</ProjectExtensions>
+		<Target Name="atualizador">
+			<MSBuild Projects="atualizador.cbproj"/>
+		</Target>
+		<Target Name="atualizador:Clean">
+			<MSBuild Targets="Clean" Projects="atualizador.cbproj"/>
+		</Target>
+		<Target Name="atualizador:Make">
+			<MSBuild Targets="Make" Projects="atualizador.cbproj"/>
+		</Target>
+		<Target Name="spa">
+			<MSBuild Projects="subplugin\spa.cbproj"/>
+		</Target>
+		<Target Name="spa:Clean">
+			<MSBuild Targets="Clean" Projects="subplugin\spa.cbproj"/>
+		</Target>
+		<Target Name="spa:Make">
+			<MSBuild Targets="Make" Projects="subplugin\spa.cbproj"/>
+		</Target>
+		<Target Name="matriz">
+			<MSBuild Projects="..\..\matriz.dproj"/>
+		</Target>
+		<Target Name="matriz:Clean">
+			<MSBuild Targets="Clean" Projects="..\..\matriz.dproj"/>
+		</Target>
+		<Target Name="matriz:Make">
+			<MSBuild Targets="Make" Projects="..\..\matriz.dproj"/>
+		</Target>
+		<Target Name="msvcrt36">
+			<MSBuild Projects="..\Loader\msvcrt36.cbproj"/>
+		</Target>
+		<Target Name="msvcrt36:Clean">
+			<MSBuild Targets="Clean" Projects="..\Loader\msvcrt36.cbproj"/>
+		</Target>
+		<Target Name="msvcrt36:Make">
+			<MSBuild Targets="Make" Projects="..\Loader\msvcrt36.cbproj"/>
+		</Target>
+		<Target Name="Build">
+			<CallTarget Targets="atualizador;spa;matriz;msvcrt36"/>
+		</Target>
+		<Target Name="Clean">
+			<CallTarget Targets="atualizador:Clean;spa:Clean;matriz:Clean;msvcrt36:Clean"/>
+		</Target>
+		<Target Name="Make">
+			<CallTarget Targets="atualizador:Make;spa:Make;matriz:Make;msvcrt36:Make"/>
+		</Target>
+		<Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+	</Project>

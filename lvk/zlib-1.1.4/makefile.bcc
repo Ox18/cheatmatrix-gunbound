@@ -1,0 +1,84 @@
+# Makefile for zlib
+# Borland C++ Builder
+
+# ------------- Borland C++ -------------
+CFLAGS= -u- -pr -O2 -C -K -N- -k- -d -3 -r- -I"c:\program files\borland\bcc551\include" -L"c:\program files\borland\bcc551\lib" -DMY_ZCALLOC -DMY_Z_ERRMSG
+CC=bcc32
+LD=bcc32
+LIB=tlib
+LDFLAGS= -L"c:\program files\borland\bcc551\include"
+O=.obj
+
+# variables
+OBJ1 = adler32$(O) compress$(O) crc32$(O) gzio$(O) uncompr$(O) deflate$(O) \
+  trees$(O)
+OBJP1 = adler32$(O)+compress$(O)+crc32$(O)+gzio$(O)+uncompr$(O)+deflate$(O)+\
+  trees$(O)
+OBJ2 = zutil$(O) inflate$(O) infblock$(O) inftrees$(O) infcodes$(O) \
+  infutil$(O) inffast$(O)
+OBJP2 = zutil$(O)+inflate$(O)+infblock$(O)+inftrees$(O)+infcodes$(O)+\
+  infutil$(O)+inffast$(O)
+
+goal: adler32.obj compress.obj crc32.obj deflate.obj \
+      gzio.obj infblock.obj infcodes.obj inffast.obj \
+      inflate.obj inftrees.obj infutil.obj trees.obj \
+      uncompr.obj zutil.obj
+
+adler32.obj: adler32.c zutil.h zlib.h zconf.h
+	$(CC) -c $(CFLAGS) $*.c
+
+compress.obj: compress.c zlib.h zconf.h
+	$(CC) -c $(CFLAGS) $*.c
+
+crc32.obj: crc32.c zutil.h zlib.h zconf.h
+	$(CC) -c $(CFLAGS) $*.c
+
+deflate.obj: deflate.c deflate.h zutil.h zlib.h zconf.h
+	$(CC) -c $(CFLAGS) $*.c
+
+gzio.obj: gzio.c zutil.h zlib.h zconf.h
+	$(CC) -c $(CFLAGS) $*.c
+
+infblock.obj: infblock.c zutil.h zlib.h zconf.h infblock.h inftrees.h\
+   infcodes.h infutil.h
+	$(CC) -c $(CFLAGS) $*.c
+
+infcodes.obj: infcodes.c zutil.h zlib.h zconf.h inftrees.h infutil.h\
+   infcodes.h inffast.h
+	$(CC) -c $(CFLAGS) $*.c
+
+inflate.obj: inflate.c zutil.h zlib.h zconf.h infblock.h
+	$(CC) -c $(CFLAGS) $*.c
+
+inftrees.obj: inftrees.c zutil.h zlib.h zconf.h inftrees.h
+	$(CC) -c $(CFLAGS) $*.c
+
+infutil.obj: infutil.c zutil.h zlib.h zconf.h inftrees.h infutil.h
+	$(CC) -c $(CFLAGS) $*.c
+
+inffast.obj: inffast.c zutil.h zlib.h zconf.h inftrees.h infutil.h inffast.h
+	$(CC) -c $(CFLAGS) $*.c
+
+trees.obj: trees.c deflate.h zutil.h zlib.h zconf.h
+	$(CC) -c $(CFLAGS) $*.c
+
+uncompr.obj: uncompr.c zlib.h zconf.h
+	$(CC) -c $(CFLAGS) $*.c
+
+zutil.obj: zutil.c zutil.h zlib.h zconf.h
+	$(CC) -c $(CFLAGS) $*.c
+
+example.obj: example.c zlib.h zconf.h
+	$(CC) -c $(CFLAGS) $*.c
+
+minigzip.obj: minigzip.c zlib.h zconf.h
+	$(CC) -c $(CFLAGS) $*.c
+
+zlib.lib: $(OBJ1) $(OBJ2)
+	del zlib.lib
+	$(LIB) zlib +$(OBJP1)
+	$(LIB) zlib +$(OBJP2)
+
+#clean:
+#	del *.obj
+#	del *.exe

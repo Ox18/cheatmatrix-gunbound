@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2010/06/22 22:16:49.484.h,E:\Programacao\MeusProjetos\Cheating_Matrix\Plugins\Aimbot\subplugin\Unit5.h=E:\Programacao\MeusProjetos\Cheating_Matrix\Plugins\Aimbot\subplugin\calibrador.h</Transaction>
+    <Transaction>2010/06/22 22:16:49.484.cpp,E:\Programacao\MeusProjetos\Cheating_Matrix\Plugins\Aimbot\subplugin\Unit5.cpp=E:\Programacao\MeusProjetos\Cheating_Matrix\Plugins\Aimbot\subplugin\calibrador.cpp</Transaction>
+    <Transaction>2010/08/13 15:51:54.890.cpp,D:\Programacao\MeusProjetos\Cheating_Matrix\Plugins\Aimbot\subplugin\Unit5.cpp=D:\Programacao\MeusProjetos\Cheating_Matrix\Plugins\Aimbot\subplugin\constantes.cpp</Transaction>
+    <Transaction>2010/08/13 15:51:54.921.h,D:\Programacao\MeusProjetos\Cheating_Matrix\Plugins\Aimbot\subplugin\Unit5.h=D:\Programacao\MeusProjetos\Cheating_Matrix\Plugins\Aimbot\subplugin\constantes.h</Transaction>
+  </Transactions>  <ProjectSortOrder AutoSort="0" SortType="0">
+    <File Path="aim.optset"/>
+    <File Path="..\..\Aimbot"/>
+    <File Path="..\PixelUnit.cpp"/>
+    <File Path="..\PixelUnit.cpp"/>
+    <File Path="..\PixelUnit.h"/>
+    <File Path="..\pluginInfo.cpp"/>
+    <File Path="..\pluginInfo.cpp"/>
+    <File Path="..\pluginInfo.h"/>
+    <File Path="..\tornado.cpp"/>
+    <File Path="..\tornado.cpp"/>
+    <File Path="..\tornado.h"/>
+    <File Path="..\..\..\Plugins"/>
+    <File Path="..\..\debugutils.cpp"/>
+    <File Path="..\..\debugutils.cpp"/>
+    <File Path="..\..\debugutils.h"/>
+    <File Path="..\..\drawUtils.cpp"/>
+    <File Path="..\..\drawUtils.cpp"/>
+    <File Path="..\..\drawUtils.h"/>
+    <File Path="..\..\mathUtils.cpp"/>
+    <File Path="..\..\mathUtils.cpp"/>
+    <File Path="..\..\mathUtils.h"/>
+    <File Path="..\..\osInfo.cpp"/>
+    <File Path="..\..\osInfo.cpp"/>
+    <File Path="..\..\osInfo.h"/>
+    <File Path="..\..\secret.cpp"/>
+    <File Path="..\..\secret.cpp"/>
+    <File Path="..\..\secret.h"/>
+    <File Path="..\..\tiposBase.cpp"/>
+    <File Path="..\..\tiposBase.cpp"/>
+    <File Path="..\..\tiposBase.h"/>
+    <File Path="..\..\VMProtectSDK.h"/>
+    <File Path="baseSP.cpp"/>
+    <File Path="baseSP.cpp"/>
+    <File Path="baseSP.h"/>
+    <File Path="calculador.cpp"/>
+    <File Path="calculador.cpp"/>
+    <File Path="calculador.h"/>
+    <File Path="calibrador.cpp"/>
+    <File Path="calibrador.cpp"/>
+    <File Path="calibrador.h"/>
+    <File Path="constantes.cpp"/>
+    <File Path="constantes.cpp"/>
+    <File Path="constantes.h"/>
+    <File Path="controle.cpp"/>
+    <File Path="controle.cpp"/>
+    <File Path="controle.h"/>
+    <File Path="efeitos.cpp"/>
+    <File Path="efeitos.cpp"/>
+    <File Path="efeitos.h"/>
+    <File Path="mobiles.cpp"/>
+    <File Path="mobiles.cpp"/>
+    <File Path="mobiles.h"/>
+    <File Path="spi.cpp"/>
+    <File Path="spi.rc"/>
+  </ProjectSortOrder>
+</BorlandProject>

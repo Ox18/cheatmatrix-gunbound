@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2010/05/21 14:40:56.314.cbproj,H:\Programacao\MeusProjetos\Cheating_Matrix\Plugins\Atualizador\subplugin\spa.cbproj=H:\Programacao\MeusProjetos\Cheating_Matrix\Plugins\Atualizador\subplugin\spi.cbproj</Transaction>
+    <Transaction>2010/05/21 15:08:11.663.h,H:\Programacao\MeusProjetos\Cheating_Matrix\Plugins\Atualizador\subplugin\estruturaPLG.h=H:\Programacao\MeusProjetos\Cheating_Matrix\Plugins\Atualizador\subplugin\Unit5.h</Transaction>
+    <Transaction>2010/05/21 15:16:23.169.cpp,H:\Programacao\MeusProjetos\Cheating_Matrix\Plugins\Atualizador\subplugin\subplugin.cpp=H:\Programacao\MeusProjetos\Cheating_Matrix\Plugins\Atualizador\subplugin\estruturaPLG.cpp</Transaction>
+    <Transaction>2010/05/21 15:16:23.169.h,H:\Programacao\MeusProjetos\Cheating_Matrix\Plugins\Atualizador\subplugin\subplugin.h=H:\Programacao\MeusProjetos\Cheating_Matrix\Plugins\Atualizador\subplugin\estruturaPLG.h</Transaction>
+    <Transaction>2010/05/27 09:31:29.625.cpp,H:\Programacao\MeusProjetos\Cheating_Matrix\Plugins\Atualizador\subplugin\spq.cpp=H:\Programacao\MeusProjetos\Cheating_Matrix\Plugins\Atualizador\subplugin\spi.cpp</Transaction>
+    <Transaction>2010/05/27 09:31:33.282.cpp,H:\Programacao\MeusProjetos\Cheating_Matrix\Plugins\Atualizador\subplugin\spa.cpp=H:\Programacao\MeusProjetos\Cheating_Matrix\Plugins\Atualizador\subplugin\spq.cpp</Transaction>
+  </Transactions>
+</BorlandProject>

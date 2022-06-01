@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+  <PersonalityInfo>
+    <Option>
+      <Option Name="Personality">Default.Personality</Option>
+      <Option Name="ProjectType"></Option>
+      <Option Name="Version">1.0</Option>
+      <Option Name="GUID">{57942255-4884-4EF4-BC10-5AD65FDD76E0}</Option>
+    </Option>
+  </PersonalityInfo>
+  <Default.Personality>
+    
+    <Projects>
+      <Projects Name="Matriz.exe">Matriz.bdsproj</Projects>
+      <Projects Name="Tradutor.exe">Tradutor\Tradutor.bdsproj</Projects>
+      <Projects Name="Project1.exe">Transformer\Project1.bdsproj</Projects>
+      <Projects Name="RecLib.dll">ReopenForm\RecLib.bdsproj</Projects>
+      <Projects Name="KeysControl.exe">CMIni\KeysControl.bdsproj</Projects>
+      <Projects Name="Targets">Matriz.exe Tradutor.exe Project1.exe RecLib.dll KeysControl.exe</Projects>
+    </Projects>
+    <Dependencies/>
+  </Default.Personality>
+</BorlandProject>

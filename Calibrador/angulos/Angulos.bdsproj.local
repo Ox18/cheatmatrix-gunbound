@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2008/04/16 21:01:27.171.pas,C:\Documents and Settings\Administrador\Meus documentos\Borland Studio Projects\Unit1.pas=C:\Documents and Settings\Administrador\Desktop\teste\angulos\Unit1.pas</Transaction>
+    <Transaction>2008/04/16 21:01:27.187.dfm,C:\Documents and Settings\Administrador\Meus documentos\Borland Studio Projects\Unit1.dfm=C:\Documents and Settings\Administrador\Desktop\teste\angulos\Unit1.dfm</Transaction>
+    <Transaction>2008/04/16 21:01:31.234.bdsproj,C:\Documents and Settings\Administrador\Meus documentos\Borland Studio Projects\Project1.bdsproj=C:\Documents and Settings\Administrador\Desktop\teste\angulos\Project1.bdsproj</Transaction>
+    <Transaction>2008/05/03 15:43:37.359.bdsproj,C:\Documents and Settings\Administrador\Desktop\teste\angulos\Project1.bdsproj=C:\Documents and Settings\Administrador\Desktop\teste\angulos\Angulos.bdsproj</Transaction>
+  </Transactions>
+</BorlandProject>

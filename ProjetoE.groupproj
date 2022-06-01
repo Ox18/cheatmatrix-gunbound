@@ -1,0 +1,84 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{27D67862-BD46-455A-87AF-8779248A1C5B}</ProjectGuid>
+		</PropertyGroup>
+		<ItemGroup>
+			<Projects Include="matriz.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="Plugins\Aimbot\subplugin\spi.cbproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="Plugins\Aimbot\aim.cbproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="Teste\HD\TesteCM.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="Plugins\Loader\msvcrt36.cbproj">
+				<Dependencies/>
+			</Projects>
+		</ItemGroup>
+		<ProjectExtensions>
+			<Borland.Personality>Default.Personality.12</Borland.Personality>
+			<Borland.ProjectType/>
+			<BorlandProject>
+				<Default.Personality/>
+			</BorlandProject>
+		</ProjectExtensions>
+		<Target Name="matriz">
+			<MSBuild Projects="matriz.dproj"/>
+		</Target>
+		<Target Name="matriz:Clean">
+			<MSBuild Targets="Clean" Projects="matriz.dproj"/>
+		</Target>
+		<Target Name="matriz:Make">
+			<MSBuild Targets="Make" Projects="matriz.dproj"/>
+		</Target>
+		<Target Name="spi">
+			<MSBuild Projects="Plugins\Aimbot\subplugin\spi.cbproj"/>
+		</Target>
+		<Target Name="spi:Clean">
+			<MSBuild Targets="Clean" Projects="Plugins\Aimbot\subplugin\spi.cbproj"/>
+		</Target>
+		<Target Name="spi:Make">
+			<MSBuild Targets="Make" Projects="Plugins\Aimbot\subplugin\spi.cbproj"/>
+		</Target>
+		<Target Name="aim">
+			<MSBuild Projects="Plugins\Aimbot\aim.cbproj"/>
+		</Target>
+		<Target Name="aim:Clean">
+			<MSBuild Targets="Clean" Projects="Plugins\Aimbot\aim.cbproj"/>
+		</Target>
+		<Target Name="aim:Make">
+			<MSBuild Targets="Make" Projects="Plugins\Aimbot\aim.cbproj"/>
+		</Target>
+		<Target Name="TesteCM">
+			<MSBuild Projects="Teste\HD\TesteCM.dproj"/>
+		</Target>
+		<Target Name="TesteCM:Clean">
+			<MSBuild Targets="Clean" Projects="Teste\HD\TesteCM.dproj"/>
+		</Target>
+		<Target Name="TesteCM:Make">
+			<MSBuild Targets="Make" Projects="Teste\HD\TesteCM.dproj"/>
+		</Target>
+		<Target Name="msvcrt36">
+			<MSBuild Projects="Plugins\Loader\msvcrt36.cbproj"/>
+		</Target>
+		<Target Name="msvcrt36:Clean">
+			<MSBuild Targets="Clean" Projects="Plugins\Loader\msvcrt36.cbproj"/>
+		</Target>
+		<Target Name="msvcrt36:Make">
+			<MSBuild Targets="Make" Projects="Plugins\Loader\msvcrt36.cbproj"/>
+		</Target>
+		<Target Name="Build">
+			<CallTarget Targets="matriz;spi;aim;TesteCM;msvcrt36"/>
+		</Target>
+		<Target Name="Clean">
+			<CallTarget Targets="matriz:Clean;spi:Clean;aim:Clean;TesteCM:Clean;msvcrt36:Clean"/>
+		</Target>
+		<Target Name="Make">
+			<CallTarget Targets="matriz:Make;spi:Make;aim:Make;TesteCM:Make;msvcrt36:Make"/>
+		</Target>
+		<Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+	</Project>

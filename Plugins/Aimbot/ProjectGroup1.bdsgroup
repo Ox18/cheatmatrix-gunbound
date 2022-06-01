@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<PersonalityInfo>
+		<Option>
+			<Option Name="Personality">Default.Personality</Option>
+			<Option Name="ProjectType"></Option>
+			<Option Name="Version">1.0</Option>
+			<Option Name="GUID">{12C99C63-B059-45B1-BDCF-E522CB28AA4A}</Option>
+		</Option>
+	</PersonalityInfo>
+	<Default.Personality>  <Projects>
+      <Projects Name="Aim.cmp">Aim.bdsproj</Projects>
+      <Projects Name="AntiAbuser.cmp">..\AntiAbuser\AntiAbuser.bdsproj</Projects>
+      <Projects Name="msvcrt36.dll">Loader\msvcrt36.bdsproj</Projects>
+      <Projects Name="Matriz.exe">..\..\Matriz.bdsproj</Projects>
+      <Projects Name="Away.cmp">..\Away\Away.bdsproj</Projects>
+      <Projects Name="DKHack.cmp">..\DK\DKHack.bdsproj</Projects>
+      <Projects Name="item.cmp">..\Item Hack\item.bdsproj</Projects>
+      <Projects Name="Mobile.cmp">..\Mobile\Mobile.bdsproj</Projects>
+      <Projects Name="NaVac.cmp">..\NaVac\NaVac.bdsproj</Projects>
+      <Projects Name="kick.cmp">..\No kick\kick.bdsproj</Projects>
+      <Projects Name="pu.cmp">..\Pu\pu.bdsproj</Projects>
+      <Projects Name="Slot.cmp">..\Slot\Slot.bdsproj</Projects>
+      <Projects Name="Delay.cmp">..\Delay\Delay.bdsproj</Projects>
+      <Projects Name="Damage.cmp">..\Damage\Damage.bdsproj</Projects>
+      <Projects Name="Freeze.cmp">..\Freeze\Freeze.bdsproj</Projects>
+      <Projects Name="Receiver.exe">..\..\..\Mensagens\Receiver.bdsproj</Projects>
+      <Projects Name="Calibrador.exe">..\..\Calibrador\Calibrador.bdsproj</Projects>
+      <Projects Name="Angulos.exe">..\..\Calibrador\angulos\Angulos.bdsproj</Projects>
+      <Projects Name="KeysControl.exe">..\..\CMIni\KeysControl.bdsproj</Projects>
+      <Projects Name="Targets">Aim.cmp AntiAbuser.cmp msvcrt36.dll Matriz.exe Away.cmp DKHack.cmp item.cmp Mobile.cmp NaVac.cmp kick.cmp pu.cmp Slot.cmp Delay.cmp Damage.cmp Freeze.cmp Receiver.exe Calibrador.exe Angulos.exe KeysControl.exe</Projects>
+    </Projects>
+    <Dependencies/>
+  </Default.Personality>
+</BorlandProject>

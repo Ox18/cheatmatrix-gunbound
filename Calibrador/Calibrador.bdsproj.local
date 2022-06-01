@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2007/05/04 15:36:21.343.cpp,D:\Documents and Settings\SW\Meus documentos\Borland Studio Projects\Unit10.cpp=C:\Downs\Programacao\MeusProgramas\Cheating_Matrix\Calibrador\Unit1.cpp</Transaction>
+    <Transaction>2007/05/04 15:36:21.343.h,D:\Documents and Settings\SW\Meus documentos\Borland Studio Projects\Unit10.h=C:\Downs\Programacao\MeusProgramas\Cheating_Matrix\Calibrador\Unit1.h</Transaction>
+    <Transaction>2007/05/04 15:36:21.343.dfm,D:\Documents and Settings\SW\Meus documentos\Borland Studio Projects\Unit10.dfm=C:\Downs\Programacao\MeusProgramas\Cheating_Matrix\Calibrador\Unit1.dfm</Transaction>
+    <Transaction>2007/05/04 15:36:26.421.bdsproj,D:\Documents and Settings\SW\Meus documentos\Borland Studio Projects\Project1.bdsproj=C:\Downs\Programacao\MeusProgramas\Cheating_Matrix\Calibrador\Calibrador.bdsproj</Transaction>
+    <Transaction>2007/05/08 15:57:48.437.cpp,C:\Downs\Programacao\MeusProgramas\Cheating_Matrix\Calibrador\Unit10.cpp=C:\Downs\Programacao\MeusProgramas\Cheating_Matrix\Calibrador\PixelListUnit.cpp</Transaction>
+    <Transaction>2007/05/08 15:57:48.437.h,C:\Downs\Programacao\MeusProgramas\Cheating_Matrix\Calibrador\Unit10.h=C:\Downs\Programacao\MeusProgramas\Cheating_Matrix\Calibrador\PixelListUnit.h</Transaction>
+    <Transaction>2007/05/08 16:04:25.421.cpp,C:\Downs\Programacao\MeusProgramas\Cheating_Matrix\Calibrador\PixelListUnit.cpp=C:\Downs\Programacao\MeusProgramas\Cheating_Matrix\Calibrador\PointListUnit.cpp</Transaction>
+    <Transaction>2007/05/08 16:04:25.421.h,C:\Downs\Programacao\MeusProgramas\Cheating_Matrix\Calibrador\PixelListUnit.h=C:\Downs\Programacao\MeusProgramas\Cheating_Matrix\Calibrador\PointListUnit.h</Transaction>
+    <Transaction>2007/05/10 21:18:31.281.cpp,C:\Downs\Programacao\MeusProgramas\Cheating_Matrix\Calibrador\PixelUnit.cpp=</Transaction>
+    <Transaction>2007/05/11 20:45:53.546.cpp,C:\Downs\Programacao\MeusProgramas\Cheating_Matrix\Calibrador\Unit4.cpp=C:\Downs\Programacao\MeusProgramas\Cheating_Matrix\Calibrador\Suporte.cpp</Transaction>
+    <Transaction>2007/05/11 20:45:53.546.h,C:\Downs\Programacao\MeusProgramas\Cheating_Matrix\Calibrador\Unit4.h=C:\Downs\Programacao\MeusProgramas\Cheating_Matrix\Calibrador\Suporte.h</Transaction>
+    <Transaction>2008/07/15 17:15:57.531.cpp,E:\Programacao\Cheating_Matrix\Calibrador\Unit8.cpp=E:\Programacao\Cheating_Matrix\Calibrador\classes.cpp</Transaction>
+    <Transaction>2008/07/15 17:15:57.593.h,E:\Programacao\Cheating_Matrix\Calibrador\Unit8.h=E:\Programacao\Cheating_Matrix\Calibrador\classes.h</Transaction>
+    <Transaction>2008/07/17 00:39:14.921.cpp,E:\Programacao\Cheating_Matrix\Calibrador\classes.cpp=E:\Programacao\Cheating_Matrix\Calibrador\classesCB.cpp</Transaction>
+    <Transaction>2008/07/17 00:39:14.937.h,E:\Programacao\Cheating_Matrix\Calibrador\classes.h=E:\Programacao\Cheating_Matrix\Calibrador\classesCB.h</Transaction>
+    <Transaction>2008/07/25 14:19:12.062.cpp,E:\Programacao\Cheating_Matrix\Calibrador\Unit8.cpp=E:\Programacao\Cheating_Matrix\Calibrador\calibracoes.cpp</Transaction>
+    <Transaction>2008/07/25 14:19:12.062.h,E:\Programacao\Cheating_Matrix\Calibrador\Unit8.h=E:\Programacao\Cheating_Matrix\Calibrador\calibracoes.h</Transaction>
+    <Transaction>2008/09/04 21:27:33.187.cpp,E:\Programacao\Cheating_Matrix\Calibrador\classesCB.cpp=E:\Programacao\Cheating_Matrix\Plugins\classesCB.cpp</Transaction>
+    <Transaction>2008/09/04 21:27:33.203.h,E:\Programacao\Cheating_Matrix\Calibrador\classesCB.h=E:\Programacao\Cheating_Matrix\Plugins\classesCB.h</Transaction>
+    <Transaction>2008/09/04 22:43:29.328.cpp,E:\Programacao\Cheating_Matrix\Plugins\classesCB.cpp=</Transaction>
+  </Transactions>
+</BorlandProject>

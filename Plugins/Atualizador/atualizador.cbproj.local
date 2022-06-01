@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2010/02/05 10:42:03.120.cpp,H:\Programacao\MeusProjetos\Cheating_Matrix\Plugins\Aimbot\status.cpp=</Transaction>
+    <Transaction>2010/02/09 16:59:45.931.cpp,H:\Programacao\MeusProjetos\Cheating_Matrix\Plugins\Aimbot\pluginInfo.cpp=H:\Programacao\MeusProjetos\Cheating_Matrix\Plugins\Aimbot\SelfDescription.cpp</Transaction>
+    <Transaction>2010/02/09 16:59:45.931.h,H:\Programacao\MeusProjetos\Cheating_Matrix\Plugins\Aimbot\pluginInfo.h=H:\Programacao\MeusProjetos\Cheating_Matrix\Plugins\Aimbot\SelfDescription.h</Transaction>
+    <Transaction>2010/02/11 10:32:38.425.h,H:\Programacao\MeusProjetos\Cheating_Matrix\Plugins\Aimbot\Resource.h=H:\Programacao\MeusProjetos\Cheating_Matrix\Plugins\Aimbot\File1.h</Transaction>
+    <Transaction>2010/05/21 14:09:09.743.cbproj,H:\Programacao\MeusProjetos\Cheating_Matrix\Plugins\Atualizador\atualizador.cbproj=H:\Programacao\MeusProjetos\Cheating_Matrix\Plugins\Atualizador\aim.cbproj</Transaction>
+  </Transactions>
+	<ProjectSortOrder AutoSort="0" SortType="0">
+    <File Path="..\..\Plugins"/>
+    <File Path="..\client.cpp"/>
+    <File Path="..\client.cpp"/>
+    <File Path="..\client.h"/>
+    <File Path="..\CMStrUtils.cpp"/>
+    <File Path="..\CMStrUtils.cpp"/>
+    <File Path="..\CMStrUtils.h"/>
+    <File Path="..\debugutils.cpp"/>
+    <File Path="..\debugutils.cpp"/>
+    <File Path="..\debugutils.h"/>
+    <File Path="..\drawUtils.cpp"/>
+    <File Path="..\drawUtils.cpp"/>
+    <File Path="..\drawUtils.h"/>
+    <File Path="..\mathUtils.cpp"/>
+    <File Path="..\mathUtils.cpp"/>
+    <File Path="..\mathUtils.h"/>
+    <File Path="..\osInfo.cpp"/>
+    <File Path="..\osInfo.cpp"/>
+    <File Path="..\osInfo.h"/>
+    <File Path="..\PluginClasses.cpp"/>
+    <File Path="..\PluginClasses.cpp"/>
+    <File Path="..\PluginClasses.h"/>
+    <File Path="..\PluginClasses.h"/>
+    <File Path="..\PluginUtils.cpp"/>
+    <File Path="..\PluginUtils.cpp"/>
+    <File Path="..\PluginUtils.h"/>
+    <File Path="..\tiposBase.cpp"/>
+    <File Path="..\tiposBase.cpp"/>
+    <File Path="..\tiposBase.h"/>
+    <File Path="atualizador.res"/>
+    <File Path="estrutura.cpp"/>
+    <File Path="estrutura.cpp"/>
+    <File Path="estrutura.h"/>
+    <File Path="pluginInfo.cpp"/>
+    <File Path="pluginInfo.cpp"/>
+    <File Path="pluginInfo.h"/>
+    <File Path="resource.h"/>
+    <File Path="sharing.cpp"/>
+    <File Path="sharing.cpp"/>
+    <File Path="sharing.h"/>
+    <File Path="Unit1.cpp"/>
+    <File Path="unit1.rc"/>
+    <File Path="Unit2.cpp"/>
+    <File Path="Unit2.cpp"/>
+    <File Path="Unit2.dfm"/>
+    <File Path="Unit2.h"/>
+  </ProjectSortOrder>
+</BorlandProject>

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<PersonalityInfo>
+		<Option>
+			<Option Name="Personality">Default.Personality</Option>
+			<Option Name="ProjectType"></Option>
+			<Option Name="Version">1.0</Option>
+			<Option Name="GUID">{7FFFAA64-57F6-4943-AE82-7E192F5BE598}</Option>
+		</Option>
+	</PersonalityInfo>
+	<Default.Personality>  
+    
+    <Projects>
+      <Projects Name="CMScanner.cmp">Scanner\CMScanner.bdsproj</Projects>
+      <Projects Name="Aim.cmp">Aimbot\Aim.bdsproj</Projects>
+      <Projects Name="DKHack.cmp">DK\DKHack.bdsproj</Projects>
+      <Projects Name="Matriz.exe">..\Matriz.bdsproj</Projects>
+      <Projects Name="Targets">CMScanner.cmp Aim.cmp DKHack.cmp Matriz.exe</Projects>
+    </Projects>
+    <Dependencies/>
+  </Default.Personality>
+</BorlandProject>

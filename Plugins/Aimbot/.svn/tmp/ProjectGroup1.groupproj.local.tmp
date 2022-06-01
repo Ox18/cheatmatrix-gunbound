@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Default.Personality>
+<<<<<<< .mine
+		<Projects ActiveProject="C:\Projetos\Cheating_Matrix\Plugins\Aimbot\subplugin\spi.cbproj"/>
+=======
+		<Projects ActiveProject="reload.dll"/>
+>>>>>>> .r67
+	</Default.Personality>
+</BorlandProject>

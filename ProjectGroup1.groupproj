@@ -1,0 +1,72 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{599392A7-80B9-408C-8594-1E25F0F8B86A}</ProjectGuid>
+		</PropertyGroup>
+		<ItemGroup>
+			<Projects Include="Matriz.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="Tradutor\Tradutor.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="ReopenForm\RecLib.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="CMIni\KeysControl.dproj">
+				<Dependencies/>
+			</Projects>
+		</ItemGroup>
+		<ProjectExtensions>
+			<Borland.Personality>Default.Personality.12</Borland.Personality>
+			<Borland.ProjectType/>
+			<BorlandProject>
+				<Default.Personality/>
+			</BorlandProject>
+		</ProjectExtensions>
+		<Target Name="Matriz">
+			<MSBuild Projects="Matriz.dproj"/>
+		</Target>
+		<Target Name="Matriz:Clean">
+			<MSBuild Targets="Clean" Projects="Matriz.dproj"/>
+		</Target>
+		<Target Name="Matriz:Make">
+			<MSBuild Targets="Make" Projects="Matriz.dproj"/>
+		</Target>
+		<Target Name="Tradutor">
+			<MSBuild Projects="Tradutor\Tradutor.dproj"/>
+		</Target>
+		<Target Name="Tradutor:Clean">
+			<MSBuild Targets="Clean" Projects="Tradutor\Tradutor.dproj"/>
+		</Target>
+		<Target Name="Tradutor:Make">
+			<MSBuild Targets="Make" Projects="Tradutor\Tradutor.dproj"/>
+		</Target>
+		<Target Name="RecLib">
+			<MSBuild Projects="ReopenForm\RecLib.dproj"/>
+		</Target>
+		<Target Name="RecLib:Clean">
+			<MSBuild Targets="Clean" Projects="ReopenForm\RecLib.dproj"/>
+		</Target>
+		<Target Name="RecLib:Make">
+			<MSBuild Targets="Make" Projects="ReopenForm\RecLib.dproj"/>
+		</Target>
+		<Target Name="KeysControl">
+			<MSBuild Projects="CMIni\KeysControl.dproj"/>
+		</Target>
+		<Target Name="KeysControl:Clean">
+			<MSBuild Targets="Clean" Projects="CMIni\KeysControl.dproj"/>
+		</Target>
+		<Target Name="KeysControl:Make">
+			<MSBuild Targets="Make" Projects="CMIni\KeysControl.dproj"/>
+		</Target>
+		<Target Name="Build">
+			<CallTarget Targets="Matriz;Tradutor;RecLib;KeysControl"/>
+		</Target>
+		<Target Name="Clean">
+			<CallTarget Targets="Matriz:Clean;Tradutor:Clean;RecLib:Clean;KeysControl:Clean"/>
+		</Target>
+		<Target Name="Make">
+			<CallTarget Targets="Matriz:Make;Tradutor:Make;RecLib:Make;KeysControl:Make"/>
+		</Target>
+		<Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+	</Project>

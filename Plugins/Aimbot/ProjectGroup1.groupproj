@@ -1,0 +1,312 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{8901C9B2-74BC-471F-A0F1-045F57544046}</ProjectGuid>
+		</PropertyGroup>
+		<ItemGroup>
+			<Projects Include="..\..\CMX.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\matriz.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\Loader\msvcrt36.cbproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\DllTeste\dmx.cbproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\Wrapper\wmx.cbproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\Teste\Pixel\Teste.cbproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="subplugin\spi.cbproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="aim.cbproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\ReopenForm\reload.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\Teste\Bot\BotTeste.cbproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\Calibrador\Calibrador.cbproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\Atualizador\atualizador.cbproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\Atualizador\subplugin\spa.cbproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="Compartilhado\Compartilhado.cbproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\Encriptador\Encriptador.cbproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\Calibrador\angulos\Angulos.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\Transformer\Transformer.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\langlib.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\Teste\Cliente\Cliente.cbproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\Teste\Servidor\Servidor.cbproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\Teste\ConsoleServer\CServer.cbproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\Ping\CMPing.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\Teste\HD\TesteCM.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\..\Teste\Inject\TesteIjt.dproj">
+				<Dependencies/>
+			</Projects>
+		</ItemGroup>
+		<ProjectExtensions>
+			<Borland.Personality>Default.Personality.12</Borland.Personality>
+			<Borland.ProjectType/>
+			<BorlandProject>
+				<Default.Personality/>
+			</BorlandProject>
+		</ProjectExtensions>
+		<Target Name="CMX">
+			<MSBuild Projects="..\..\CMX.dproj"/>
+		</Target>
+		<Target Name="CMX:Clean">
+			<MSBuild Projects="..\..\CMX.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="CMX:Make">
+			<MSBuild Projects="..\..\CMX.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="matriz">
+			<MSBuild Projects="..\..\matriz.dproj"/>
+		</Target>
+		<Target Name="matriz:Clean">
+			<MSBuild Projects="..\..\matriz.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="matriz:Make">
+			<MSBuild Projects="..\..\matriz.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="msvcrt36">
+			<MSBuild Projects="..\Loader\msvcrt36.cbproj"/>
+		</Target>
+		<Target Name="msvcrt36:Clean">
+			<MSBuild Projects="..\Loader\msvcrt36.cbproj" Targets="Clean"/>
+		</Target>
+		<Target Name="msvcrt36:Make">
+			<MSBuild Projects="..\Loader\msvcrt36.cbproj" Targets="Make"/>
+		</Target>
+		<Target Name="dmx">
+			<MSBuild Projects="..\DllTeste\dmx.cbproj"/>
+		</Target>
+		<Target Name="dmx:Clean">
+			<MSBuild Projects="..\DllTeste\dmx.cbproj" Targets="Clean"/>
+		</Target>
+		<Target Name="dmx:Make">
+			<MSBuild Projects="..\DllTeste\dmx.cbproj" Targets="Make"/>
+		</Target>
+		<Target Name="wmx">
+			<MSBuild Projects="..\Wrapper\wmx.cbproj"/>
+		</Target>
+		<Target Name="wmx:Clean">
+			<MSBuild Projects="..\Wrapper\wmx.cbproj" Targets="Clean"/>
+		</Target>
+		<Target Name="wmx:Make">
+			<MSBuild Projects="..\Wrapper\wmx.cbproj" Targets="Make"/>
+		</Target>
+		<Target Name="Teste">
+			<MSBuild Projects="..\..\Teste\Pixel\Teste.cbproj"/>
+		</Target>
+		<Target Name="Teste:Clean">
+			<MSBuild Projects="..\..\Teste\Pixel\Teste.cbproj" Targets="Clean"/>
+		</Target>
+		<Target Name="Teste:Make">
+			<MSBuild Projects="..\..\Teste\Pixel\Teste.cbproj" Targets="Make"/>
+		</Target>
+		<Target Name="spi">
+			<MSBuild Projects="subplugin\spi.cbproj"/>
+		</Target>
+		<Target Name="spi:Clean">
+			<MSBuild Projects="subplugin\spi.cbproj" Targets="Clean"/>
+		</Target>
+		<Target Name="spi:Make">
+			<MSBuild Projects="subplugin\spi.cbproj" Targets="Make"/>
+		</Target>
+		<Target Name="aim">
+			<MSBuild Projects="aim.cbproj"/>
+		</Target>
+		<Target Name="aim:Clean">
+			<MSBuild Projects="aim.cbproj" Targets="Clean"/>
+		</Target>
+		<Target Name="aim:Make">
+			<MSBuild Projects="aim.cbproj" Targets="Make"/>
+		</Target>
+		<Target Name="reload">
+			<MSBuild Projects="..\..\ReopenForm\reload.dproj"/>
+		</Target>
+		<Target Name="reload:Clean">
+			<MSBuild Projects="..\..\ReopenForm\reload.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="reload:Make">
+			<MSBuild Projects="..\..\ReopenForm\reload.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="BotTeste">
+			<MSBuild Projects="..\..\Teste\Bot\BotTeste.cbproj"/>
+		</Target>
+		<Target Name="BotTeste:Clean">
+			<MSBuild Projects="..\..\Teste\Bot\BotTeste.cbproj" Targets="Clean"/>
+		</Target>
+		<Target Name="BotTeste:Make">
+			<MSBuild Projects="..\..\Teste\Bot\BotTeste.cbproj" Targets="Make"/>
+		</Target>
+		<Target Name="Calibrador">
+			<MSBuild Projects="..\..\Calibrador\Calibrador.cbproj"/>
+		</Target>
+		<Target Name="Calibrador:Clean">
+			<MSBuild Projects="..\..\Calibrador\Calibrador.cbproj" Targets="Clean"/>
+		</Target>
+		<Target Name="Calibrador:Make">
+			<MSBuild Projects="..\..\Calibrador\Calibrador.cbproj" Targets="Make"/>
+		</Target>
+		<Target Name="atualizador">
+			<MSBuild Projects="..\Atualizador\atualizador.cbproj"/>
+		</Target>
+		<Target Name="atualizador:Clean">
+			<MSBuild Projects="..\Atualizador\atualizador.cbproj" Targets="Clean"/>
+		</Target>
+		<Target Name="atualizador:Make">
+			<MSBuild Projects="..\Atualizador\atualizador.cbproj" Targets="Make"/>
+		</Target>
+		<Target Name="spa">
+			<MSBuild Projects="..\Atualizador\subplugin\spa.cbproj"/>
+		</Target>
+		<Target Name="spa:Clean">
+			<MSBuild Projects="..\Atualizador\subplugin\spa.cbproj" Targets="Clean"/>
+		</Target>
+		<Target Name="spa:Make">
+			<MSBuild Projects="..\Atualizador\subplugin\spa.cbproj" Targets="Make"/>
+		</Target>
+		<Target Name="Compartilhado">
+			<MSBuild Projects="Compartilhado\Compartilhado.cbproj"/>
+		</Target>
+		<Target Name="Compartilhado:Clean">
+			<MSBuild Projects="Compartilhado\Compartilhado.cbproj" Targets="Clean"/>
+		</Target>
+		<Target Name="Compartilhado:Make">
+			<MSBuild Projects="Compartilhado\Compartilhado.cbproj" Targets="Make"/>
+		</Target>
+		<Target Name="Encriptador">
+			<MSBuild Projects="..\Encriptador\Encriptador.cbproj"/>
+		</Target>
+		<Target Name="Encriptador:Clean">
+			<MSBuild Projects="..\Encriptador\Encriptador.cbproj" Targets="Clean"/>
+		</Target>
+		<Target Name="Encriptador:Make">
+			<MSBuild Projects="..\Encriptador\Encriptador.cbproj" Targets="Make"/>
+		</Target>
+		<Target Name="Angulos">
+			<MSBuild Projects="..\..\Calibrador\angulos\Angulos.dproj"/>
+		</Target>
+		<Target Name="Angulos:Clean">
+			<MSBuild Projects="..\..\Calibrador\angulos\Angulos.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="Angulos:Make">
+			<MSBuild Projects="..\..\Calibrador\angulos\Angulos.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="Transformer">
+			<MSBuild Projects="..\..\Transformer\Transformer.dproj"/>
+		</Target>
+		<Target Name="Transformer:Clean">
+			<MSBuild Projects="..\..\Transformer\Transformer.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="Transformer:Make">
+			<MSBuild Projects="..\..\Transformer\Transformer.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="langlib">
+			<MSBuild Projects="..\..\langlib.dproj"/>
+		</Target>
+		<Target Name="langlib:Clean">
+			<MSBuild Projects="..\..\langlib.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="langlib:Make">
+			<MSBuild Projects="..\..\langlib.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="Cliente">
+			<MSBuild Projects="..\..\Teste\Cliente\Cliente.cbproj"/>
+		</Target>
+		<Target Name="Cliente:Clean">
+			<MSBuild Projects="..\..\Teste\Cliente\Cliente.cbproj" Targets="Clean"/>
+		</Target>
+		<Target Name="Cliente:Make">
+			<MSBuild Projects="..\..\Teste\Cliente\Cliente.cbproj" Targets="Make"/>
+		</Target>
+		<Target Name="Servidor">
+			<MSBuild Projects="..\..\Teste\Servidor\Servidor.cbproj"/>
+		</Target>
+		<Target Name="Servidor:Clean">
+			<MSBuild Projects="..\..\Teste\Servidor\Servidor.cbproj" Targets="Clean"/>
+		</Target>
+		<Target Name="Servidor:Make">
+			<MSBuild Projects="..\..\Teste\Servidor\Servidor.cbproj" Targets="Make"/>
+		</Target>
+		<Target Name="CServer">
+			<MSBuild Projects="..\..\Teste\ConsoleServer\CServer.cbproj"/>
+		</Target>
+		<Target Name="CServer:Clean">
+			<MSBuild Projects="..\..\Teste\ConsoleServer\CServer.cbproj" Targets="Clean"/>
+		</Target>
+		<Target Name="CServer:Make">
+			<MSBuild Projects="..\..\Teste\ConsoleServer\CServer.cbproj" Targets="Make"/>
+		</Target>
+		<Target Name="CMPing">
+			<MSBuild Projects="..\..\Ping\CMPing.dproj"/>
+		</Target>
+		<Target Name="CMPing:Clean">
+			<MSBuild Projects="..\..\Ping\CMPing.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="CMPing:Make">
+			<MSBuild Projects="..\..\Ping\CMPing.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="TesteCM">
+			<MSBuild Projects="..\..\Teste\HD\TesteCM.dproj"/>
+		</Target>
+		<Target Name="TesteCM:Clean">
+			<MSBuild Projects="..\..\Teste\HD\TesteCM.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="TesteCM:Make">
+			<MSBuild Projects="..\..\Teste\HD\TesteCM.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="TesteIjt">
+			<MSBuild Projects="..\..\Teste\Inject\TesteIjt.dproj"/>
+		</Target>
+		<Target Name="TesteIjt:Clean">
+			<MSBuild Projects="..\..\Teste\Inject\TesteIjt.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="TesteIjt:Make">
+			<MSBuild Projects="..\..\Teste\Inject\TesteIjt.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="Build">
+			<CallTarget Targets="CMX;matriz;msvcrt36;dmx;wmx;Teste;spi;aim;reload;BotTeste;Calibrador;atualizador;spa;Compartilhado;Encriptador;Angulos;Transformer;langlib;Cliente;Servidor;CServer;CMPing;TesteCM;TesteIjt"/>
+		</Target>
+		<Target Name="Clean">
+			<CallTarget Targets="CMX:Clean;matriz:Clean;msvcrt36:Clean;dmx:Clean;wmx:Clean;Teste:Clean;spi:Clean;aim:Clean;reload:Clean;BotTeste:Clean;Calibrador:Clean;atualizador:Clean;spa:Clean;Compartilhado:Clean;Encriptador:Clean;Angulos:Clean;Transformer:Clean;langlib:Clean;Cliente:Clean;Servidor:Clean;CServer:Clean;CMPing:Clean;TesteCM:Clean;TesteIjt:Clean"/>
+		</Target>
+		<Target Name="Make">
+			<CallTarget Targets="CMX:Make;matriz:Make;msvcrt36:Make;dmx:Make;wmx:Make;Teste:Make;spi:Make;aim:Make;reload:Make;BotTeste:Make;Calibrador:Make;atualizador:Make;spa:Make;Compartilhado:Make;Encriptador:Make;Angulos:Make;Transformer:Make;langlib:Make;Cliente:Make;Servidor:Make;CServer:Make;CMPing:Make;TesteCM:Make;TesteIjt:Make"/>
+		</Target>
+		<Import Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')" Project="$(BDS)\Bin\CodeGear.Group.Targets"/>
+	</Project>

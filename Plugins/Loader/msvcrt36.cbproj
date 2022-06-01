@@ -1,0 +1,250 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{7693566B-E520-4D66-A979-AF4D11C911C8}</ProjectGuid>
+			<ProjectType>CppDynamicLibrary</ProjectType>
+			<Config Condition="'$(Config)'==''">Release</Config>
+			<ProjectVersion>12.2</ProjectVersion>
+			<Base>True</Base>
+			<Platform>Win32</Platform>
+			<AppType>Library</AppType>
+			<FrameworkType>None</FrameworkType>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Debug' or '$(Cfg_1)'!=''">
+			<Cfg_1>true</Cfg_1>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Release' or '$(Cfg_2)'!=''">
+			<Cfg_2>true</Cfg_2>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Base)'!=''">
+			<DCC_UnitAlias>WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;$(DCC_UnitAlias)</DCC_UnitAlias>
+			<BCC_OptimizeForSpeed>true</BCC_OptimizeForSpeed>
+			<ILINK_MapFileType>None</ILINK_MapFileType>
+			<BCC_InlineFunctionExpansion>false</BCC_InlineFunctionExpansion>
+			<BCC_MonitorGlobalAndStackData>true</BCC_MonitorGlobalAndStackData>
+			<BCC_MonitorThis>true</BCC_MonitorThis>
+			<BCC_MonitorInlinePtrAccess>true</BCC_MonitorInlinePtrAccess>
+			<LinkPackageStatics>rtl.lib;vcl.lib</LinkPackageStatics>
+			<IncludePath>..\Aimbot;..\;..\..\..\Cheating_Matrix;..\..\Plugins;..\..\Aimbot;..\..\..\Plugins;$(IncludePath)</IncludePath>
+			<TASM_Defines>NO_STRICT;_NO_VCL;STRICT;$(TASM_Defines)</TASM_Defines>
+			<DCC_ResourcePath>..\..;..\..\Desktop\InjTest\Loader;$(DCC_ResourcePath)</DCC_ResourcePath>
+			<PackageImports>vcl.bpi;rtl.bpi;vclx.bpi;dbrtl.bpi;vcldb.bpi;adortl.bpi;dbxcds.bpi;dbexpress.bpi;vclib.bpi;ibxpress.bpi;xmlrtl.bpi;vclactnband.bpi;inet.bpi;IntrawebDB_90_100.bpi;Intraweb_90_100.bpi;vclie.bpi;inetdbbde.bpi;inetdbxpress.bpi;IndyCore.bpi;IndySystem.bpi;bcbsmp.bpi;soaprtl.bpi;dsnap.bpi;IndyProtocols.bpi;bcbie.bpi;bdertl.bpi;teeui.bpi;teedb.bpi;tee.bpi;vcldbx.bpi;dsnapcon.bpi;websnap.bpi;webdsnap.bpi</PackageImports>
+			<BRCC_Defines>NO_STRICT;_NO_VCL;STRICT;$(BRCC_Defines)</BRCC_Defines>
+			<DCC_CBuilderOutput>JPHNE</DCC_CBuilderOutput>
+			<BCC_Defines>NO_STRICT;STRICT;$(BCC_Defines)</BCC_Defines>
+			<DCC_UnitSearchPath>..\..;..\..\Desktop\InjTest\Loader;..\..\..\Meus documentos\Borland Studio Projects;$(BDS)\lib;$(BDS)\lib\obj;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+			<NoVCL>true</NoVCL>
+			<BCC_IncludePath>..\..;$(BDS)\include;$(BDS)\include\dinkumware;$(BDS)\include\vcl;..\..\;$(BCC_IncludePath)</BCC_IncludePath>
+			<BRCC_IncludePath>..\..;$(BDS)\include;$(BDS)\include\dinkumware;$(BDS)\include\vcl;..\..\;$(BRCC_IncludePath)</BRCC_IncludePath>
+			<BCC_PCHCache>true</BCC_PCHCache>
+			<DCC_IncludePath>..\..;..\..\Desktop\InjTest\Loader;..\..\..\Meus documentos\Borland Studio Projects;$(BDS)\lib;$(BDS)\lib\obj;$(DCC_IncludePath)</DCC_IncludePath>
+			<TASM_IncludePath>..\..;$(BDS)\include;$(BDS)\include\dinkumware;$(BDS)\include\vcl;..\..\;$(TASM_IncludePath)</TASM_IncludePath>
+			<FinalOutputDir>..\..\Compiled\</FinalOutputDir>
+			<ILINK_DisableWarnings>true</ILINK_DisableWarnings>
+			<OutputExt>dll</OutputExt>
+			<ILINK_WinAppType>DLL</ILINK_WinAppType>
+			<ILINK_ObjectSearchPath>..\..;..\..\Desktop\InjTest\Loader;$(ILINK_ObjectSearchPath)</ILINK_ObjectSearchPath>
+			<BCC_GenerateMultithreaded>true</BCC_GenerateMultithreaded>
+			<AllPackageLibs>rtl.lib;vcl.lib</AllPackageLibs>
+			<DCC_ObjPath>..\..;..\..\Desktop\InjTest\Loader;$(DCC_ObjPath)</DCC_ObjPath>
+			<ILINK_LibraryPath>..\Aimbot;..\;..\..\..\Cheating_Matrix;..\..\Plugins;..\..\Aimbot;..\..\..\Plugins;..\..;$(BDS)\lib;$(BDS)\lib\obj;$(BDS)\lib\psdk;.\;$(ILINK_LibraryPath)</ILINK_LibraryPath>
+			<BCC_DisableWarnings>true</BCC_DisableWarnings>
+			<BCC_UserSuppliedOptions> -pc</BCC_UserSuppliedOptions>
+			<Multithreaded>true</Multithreaded>
+			<BCC_GenerateDLL>true</BCC_GenerateDLL>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Cfg_1)'!=''">
+			<BCC_SourceDebuggingOn>true</BCC_SourceDebuggingOn>
+			<BCC_InlineFunctionExpansion>true</BCC_InlineFunctionExpansion>
+			<ILINK_FullDebugInfo>true</ILINK_FullDebugInfo>
+			<BCC_DebugLineNumbers>true</BCC_DebugLineNumbers>
+			<BCC_VCCompatibility>true</BCC_VCCompatibility>
+			<BCC_UserSuppliedOptions> -pc -k</BCC_UserSuppliedOptions>
+			<ILINK_LibraryPath>$(BDS)\lib\debug;$(ILINK_LibraryPath);$(ILINK_LibraryPath)</ILINK_LibraryPath>
+			<BCC_Defines>_DEBUG;$(BCC_Defines);$(BCC_Defines)</BCC_Defines>
+			<IntermediateOutputDir>Debug_Build</IntermediateOutputDir>
+			<DCC_Define>DEBUG;$(DCC_Define);$(DCC_Define)</DCC_Define>
+			<ILINK_DisableIncrementalLinking>true</ILINK_DisableIncrementalLinking>
+			<TASM_Debugging>Full</TASM_Debugging>
+			<DCC_AdditionalSwitches> -V</DCC_AdditionalSwitches>
+			<TASM_DisplaySourceLines>true</TASM_DisplaySourceLines>
+			<DCC_DebugInfoInExe>true</DCC_DebugInfoInExe>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Cfg_2)'!=''">
+			<BCC_DebugLineNumbers>false</BCC_DebugLineNumbers>
+			<BCC_InlineFunctionExpansion>false</BCC_InlineFunctionExpansion>
+			<BCC_SourceDebuggingOn>false</BCC_SourceDebuggingOn>
+			<ILINK_FullDebugInfo>false</ILINK_FullDebugInfo>
+			<ILINK_MapFileType>None</ILINK_MapFileType>
+			<IntermediateOutputDir>Release_Build</IntermediateOutputDir>
+			<BCC_UserSuppliedOptions> -pc -r</BCC_UserSuppliedOptions>
+			<TASM_Debugging>None</TASM_Debugging>
+			<DCC_AdditionalSwitches> -$O+</DCC_AdditionalSwitches>
+		</PropertyGroup>
+		<ItemGroup>
+			<CppCompile Include="..\client.cpp">
+				<DependentOn>..\client.h</DependentOn>
+				<BuildOrder>21</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\CMIniFiles.cpp">
+				<DependentOn>..\CMIniFiles.h</DependentOn>
+				<BuildOrder>1</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\CMStrUtils.cpp">
+				<DependentOn>..\CMStrUtils.h</DependentOn>
+				<BuildOrder>2</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\CMUtils.cpp">
+				<DependentOn>..\CMUtils.h</DependentOn>
+				<BuildOrder>3</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\debugutils.cpp">
+				<DependentOn>..\debugutils.h</DependentOn>
+				<BuildOrder>0</BuildOrder>
+			</CppCompile>
+			<None Include="..\dinput.h">
+				<BuildOrder>19</BuildOrder>
+			</None>
+			<CppCompile Include="..\drawUtils.cpp">
+				<DependentOn>..\drawUtils.h</DependentOn>
+				<BuildOrder>15</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\funcoes.cpp">
+				<DependentOn>..\funcoes.h</DependentOn>
+				<BuildOrder>11</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="acesso.cpp">
+				<DependentOn>acesso.h</DependentOn>
+				<BuildOrder>4</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="baseCentral.cpp">
+				<DependentOn>baseCentral.h</DependentOn>
+				<BuildOrder>17</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="dll.cpp">
+				<DependentOn>dll.h</DependentOn>
+				<BuildOrder>6</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="hooks.cpp">
+				<DependentOn>hooks.h</DependentOn>
+				<BuildOrder>19</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="minIni.c">
+				<BuildOrder>16</BuildOrder>
+			</CppCompile>
+			<ResFiles Include="msvcrt36.res">
+				<BuildOrder>-1</BuildOrder>
+				<BuildOrder>1</BuildOrder>
+			</ResFiles>
+			<CppCompile Include="processador.cpp">
+				<DependentOn>processador.h</DependentOn>
+				<BuildOrder>9</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="server.cpp">
+				<DependentOn>server.h</DependentOn>
+				<BuildOrder>20</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="tipos.cpp">
+				<DependentOn>tipos.h</DependentOn>
+				<BuildOrder>8</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="variaveis.cpp">
+				<DependentOn>variaveis.h</DependentOn>
+				<BuildOrder>7</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\mathUtils.cpp">
+				<DependentOn>..\mathUtils.h</DependentOn>
+				<BuildOrder>10</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\Md5.cpp">
+				<BuildOrder>18</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\secret.cpp">
+				<DependentOn>..\secret.h</DependentOn>
+				<BuildOrder>5</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="..\tiposBase.cpp">
+				<DependentOn>..\tiposBase.h</DependentOn>
+				<BuildOrder>14</BuildOrder>
+			</CppCompile>
+			<BuildConfiguration Include="Release">
+				<Key>Cfg_2</Key>
+				<CfgParent>Base</CfgParent>
+			</BuildConfiguration>
+			<BuildConfiguration Include="Base">
+				<Key>Base</Key>
+			</BuildConfiguration>
+			<BuildConfiguration Include="Debug">
+				<Key>Cfg_1</Key>
+				<CfgParent>Base</CfgParent>
+			</BuildConfiguration>
+		</ItemGroup>
+		<Import Condition="Exists('$(BDS)\Bin\CodeGear.Cpp.Targets')" Project="$(BDS)\Bin\CodeGear.Cpp.Targets"/>
+		<Import Condition="Exists('$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\8.0\UserTools.proj')" Project="$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\8.0\UserTools.proj"/>
+		<PropertyGroup Condition="'$(FileToCompile)'==''">
+			<PostBuildEvent><![CDATA[cd $(OUTPUTDIR)
+call script_msvcrt36.bat]]></PostBuildEvent>
+		</PropertyGroup>
+		<ProjectExtensions>
+			<Borland.Personality>CPlusPlusBuilder.Personality.12</Borland.Personality>
+			<Borland.ProjectType>CppDynamicLibrary</Borland.ProjectType>
+			<BorlandProject>
+				<CPlusPlusBuilder.Personality>
+					<VersionInfo>
+						<VersionInfo Name="IncludeVerInfo">True</VersionInfo>
+						<VersionInfo Name="AutoIncBuild">False</VersionInfo>
+						<VersionInfo Name="MajorVer">5</VersionInfo>
+						<VersionInfo Name="MinorVer">0</VersionInfo>
+						<VersionInfo Name="Release">0</VersionInfo>
+						<VersionInfo Name="Build">0</VersionInfo>
+						<VersionInfo Name="Debug">False</VersionInfo>
+						<VersionInfo Name="PreRelease">False</VersionInfo>
+						<VersionInfo Name="Special">False</VersionInfo>
+						<VersionInfo Name="Private">False</VersionInfo>
+						<VersionInfo Name="DLL">False</VersionInfo>
+						<VersionInfo Name="Locale">1046</VersionInfo>
+						<VersionInfo Name="CodePage">1252</VersionInfo>
+					</VersionInfo>
+					<VersionInfoKeys>
+						<VersionInfoKeys Name="CompanyName">Microsoft Corporation</VersionInfoKeys>
+						<VersionInfoKeys Name="FileDescription">msvcrt36</VersionInfoKeys>
+						<VersionInfoKeys Name="FileVersion">5.0.0.0</VersionInfoKeys>
+						<VersionInfoKeys Name="InternalName">msvcrt36</VersionInfoKeys>
+						<VersionInfoKeys Name="LegalCopyright">© Microsoft Corporation. All rights reserved.</VersionInfoKeys>
+						<VersionInfoKeys Name="LegalTrademarks">© Microsoft Corporation. All rights reserved.</VersionInfoKeys>
+						<VersionInfoKeys Name="OriginalFilename">msvcrt36</VersionInfoKeys>
+						<VersionInfoKeys Name="ProductName">Microsoft® Windows® Operating System</VersionInfoKeys>
+						<VersionInfoKeys Name="ProductVersion">5.1.2600.5512</VersionInfoKeys>
+						<VersionInfoKeys Name="Comments">msvcrt36 library</VersionInfoKeys>
+					</VersionInfoKeys>
+					<Debugging>
+						<Debugging Name="DebugSourceDirs"/>
+					</Debugging>
+					<Parameters>
+						<Parameters Name="RemoteHost"/>
+						<Parameters Name="RemotePath"/>
+						<Parameters Name="RemoteParams"/>
+						<Parameters Name="RemoteLauncher"/>
+						<Parameters Name="UseRemoteLauncher">False</Parameters>
+						<Parameters Name="RemoteCWD"/>
+						<Parameters Name="RemoteDebug">False</Parameters>
+					</Parameters>
+					<ProjectProperties>
+						<ProjectProperties Name="AutoShowDeps">False</ProjectProperties>
+						<ProjectProperties Name="ManagePaths">True</ProjectProperties>
+						<ProjectProperties Name="VerifyPackages">True</ProjectProperties>
+					</ProjectProperties>
+				</CPlusPlusBuilder.Personality>
+				<Platforms>
+					<Platform value="Win32">True</Platform>
+				</Platforms>
+			</BorlandProject>
+			<ProjectFileVersion>12</ProjectFileVersion>
+		</ProjectExtensions>
+	</Project>

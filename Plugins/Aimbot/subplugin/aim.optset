@@ -1,0 +1,28 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<BCC_Defines>_DEBUG;$(BCC_Defines);$(BCC_Defines)</BCC_Defines>
+			<ILINK_FullDebugInfo>false</ILINK_FullDebugInfo>
+			<ILINK_LibraryPath>$(BDS)\lib\debug;$(ILINK_LibraryPath);$(ILINK_LibraryPath)</ILINK_LibraryPath>
+			<BCC_UserSuppliedOptions> -pc -k</BCC_UserSuppliedOptions>
+			<IntermediateOutputDir>Debug_Build</IntermediateOutputDir>
+			<BCC_SourceDebuggingOn>false</BCC_SourceDebuggingOn>
+			<DCC_Define>DEBUG;$(DCC_Define);$(DCC_Define)</DCC_Define>
+			<BCC_CallingConvention>stdcall</BCC_CallingConvention>
+			<BCC_AllCodeguardOptions>false</BCC_AllCodeguardOptions>
+			<DCC_AdditionalSwitches> -V</DCC_AdditionalSwitches>
+			<TASM_Debugging>Full</TASM_Debugging>
+			<BCC_DisableOptimizations>true</BCC_DisableOptimizations>
+			<BCC_DebugLineNumbers>false</BCC_DebugLineNumbers>
+			<TASM_DisplaySourceLines>true</TASM_DisplaySourceLines>
+			<BCC_InlineFunctionExpansion>false</BCC_InlineFunctionExpansion>
+			<DCC_DebugInfoInExe>true</DCC_DebugInfoInExe>
+		</PropertyGroup>
+		<ProjectExtensions>
+			<Borland.Personality>CPlusPlusBuilder.Personality.12</Borland.Personality>
+			<Borland.ProjectType>OptionSet</Borland.ProjectType>
+			<BorlandProject>
+				<CPlusPlusBuilder.Personality/>
+			</BorlandProject>
+			<ProjectFileVersion>12</ProjectFileVersion>
+		</ProjectExtensions>
+	</Project>

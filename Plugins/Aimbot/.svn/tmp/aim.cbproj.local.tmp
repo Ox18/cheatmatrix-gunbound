@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2010/02/05 10:20:50.913.cpp,H:\Programacao\MeusProjetos\Cheating_Matrix\Plugins\Aimbot\BotUnit.cpp=</Transaction>
+    <Transaction>2010/02/05 10:39:24.477.cpp,H:\Programacao\MeusProjetos\Cheating_Matrix\Plugins\PluginCommon.cpp=</Transaction>
+    <Transaction>2010/02/05 10:42:03.120.cpp,H:\Programacao\MeusProjetos\Cheating_Matrix\Plugins\Aimbot\status.cpp=</Transaction>
+    <Transaction>2010/02/05 10:44:03.809.cpp,H:\Programacao\MeusProjetos\Cheating_Matrix\Plugins\Aimbot\PixelUnit.cpp=</Transaction>
+    <Transaction>2010/02/05 14:16:48.275.h,H:\Programacao\MeusProjetos\Cheating_Matrix\Plugins\Aimbot\SelfDescription2.h=</Transaction>
+    <Transaction>2010/02/09 16:59:45.931.cpp,H:\Programacao\MeusProjetos\Cheating_Matrix\Plugins\Aimbot\pluginInfo.cpp=H:\Programacao\MeusProjetos\Cheating_Matrix\Plugins\Aimbot\SelfDescription.cpp</Transaction>
+    <Transaction>2010/02/09 16:59:45.931.h,H:\Programacao\MeusProjetos\Cheating_Matrix\Plugins\Aimbot\pluginInfo.h=H:\Programacao\MeusProjetos\Cheating_Matrix\Plugins\Aimbot\SelfDescription.h</Transaction>
+    <Transaction>2010/02/11 10:32:38.425.h,H:\Programacao\MeusProjetos\Cheating_Matrix\Plugins\Aimbot\Resource.h=H:\Programacao\MeusProjetos\Cheating_Matrix\Plugins\Aimbot\File1.h</Transaction>
+    <Transaction>2010/08/12 15:52:49.859.cpp,H:\Programacao\MeusProjetos\Cheating_Matrix\Plugins\Aimbot\constantes.cpp=H:\Programacao\MeusProjetos\Cheating_Matrix\Plugins\Aimbot\Unit5.cpp</Transaction>
+    <Transaction>2010/08/12 15:52:49.875.h,H:\Programacao\MeusProjetos\Cheating_Matrix\Plugins\Aimbot\constantes.h=H:\Programacao\MeusProjetos\Cheating_Matrix\Plugins\Aimbot\Unit5.h</Transaction>
+    <Transaction>2010/12/10 18:32:05.218.cpp,D:\Programacao\MeusProjetos\Cheating_Matrix\Plugins\Aimbot\constantes.cpp=</Transaction>
+  </Transactions>
+	<ProjectSortOrder AutoSort="0" SortType="0">
+    <File Path="..\..\Plugins"/>
+    <File Path="..\client.cpp"/>
+    <File Path="..\client.cpp"/>
+    <File Path="..\client.h"/>
+    <File Path="..\CMStrUtils.cpp"/>
+    <File Path="..\CMStrUtils.cpp"/>
+    <File Path="..\CMStrUtils.h"/>
+    <File Path="..\debugutils.cpp"/>
+    <File Path="..\debugutils.cpp"/>
+    <File Path="..\debugutils.h"/>
+    <File Path="..\drawUtils.cpp"/>
+    <File Path="..\drawUtils.cpp"/>
+    <File Path="..\drawUtils.h"/>
+    <File Path="..\mathUtils.cpp"/>
+    <File Path="..\mathUtils.cpp"/>
+    <File Path="..\mathUtils.h"/>
+    <File Path="..\osInfo.cpp"/>
+    <File Path="..\osInfo.cpp"/>
+    <File Path="..\osInfo.h"/>
+    <File Path="..\PluginClasses.cpp"/>
+    <File Path="..\PluginClasses.cpp"/>
+    <File Path="..\PluginClasses.h"/>
+    <File Path="..\PluginClasses.h"/>
+    <File Path="..\PluginUtils.cpp"/>
+    <File Path="..\PluginUtils.cpp"/>
+    <File Path="..\PluginUtils.h"/>
+    <File Path="..\tiposBase.cpp"/>
+    <File Path="..\tiposBase.cpp"/>
+    <File Path="..\tiposBase.h"/>
+    <File Path="Unit2.cpp"/>
+    <File Path="Unit2.cpp"/>
+    <File Path="Unit2.dfm"/>
+    <File Path="Unit2.h"/>
+    <File Path="InjUnit.cpp"/>
+    <File Path="InjUnit.cpp"/>
+    <File Path="InjUnit.h"/>
+    <File Path="PixelUnit.cpp"/>
+    <File Path="PixelUnit.cpp"/>
+    <File Path="PixelUnit.h"/>
+    <File Path="estruturaBot.cpp"/>
+    <File Path="estruturaBot.cpp"/>
+    <File Path="estruturaBot.h"/>
+    <File Path="aim.res"/>
+    <File Path="Unit1.cpp"/>
+    <File Path="unit1.rc"/>
+    <File Path="sharing.cpp"/>
+    <File Path="sharing.cpp"/>
+    <File Path="sharing.h"/>
+    <File Path="pluginInfo.cpp"/>
+    <File Path="pluginInfo.cpp"/>
+    <File Path="pluginInfo.h"/>
+    <File Path="resource.h"/>
+    <File Path="constantes.cpp"/>
+    <File Path="constantes.cpp"/>
+    <File Path="constantes.h"/>
+  </ProjectSortOrder>
+</BorlandProject>

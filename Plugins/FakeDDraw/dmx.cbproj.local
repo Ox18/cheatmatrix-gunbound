@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2011/01/13 11:38:39.000.395,=C:\Users\Douglas\Documents\RAD Studio\Projects\File1.cpp</Transaction>
+    <Transaction>2011/01/13 11:39:09.000.738,=C:\Projetos\Cheating_Matrix\Plugins\osInfo.cpp</Transaction>
+    <Transaction>2011/01/13 11:39:09.000.732,=C:\Projetos\Cheating_Matrix\Plugins\debugutils.cpp</Transaction>
+    <Transaction>2011/01/13 11:39:50.000.369,C:\Users\Douglas\Documents\RAD Studio\Projects\File1.cpp=C:\Projetos\Cheating_Matrix\Plugins\DllTeste\File1.cpp</Transaction>
+    <Transaction>2011/01/13 11:39:57.000.325,C:\Users\Douglas\Documents\RAD Studio\Projects\Project1.cbproj=C:\Projetos\Cheating_Matrix\Plugins\DllTeste\Teste.cbproj</Transaction>
+    <Transaction>2011/01/13 11:40:09.000.927,C:\Projetos\Cheating_Matrix\Plugins\DllTeste\Teste.cbproj=C:\Projetos\Cheating_Matrix\Plugins\DllTeste\TesteDll.cbproj</Transaction>
+    <Transaction>2011/01/13 14:26:40.000.477,=C:\Projetos\Cheating_Matrix\Plugins\DllTeste\File2.h</Transaction>
+    <Transaction>2011/01/13 14:27:22.000.514,C:\Projetos\Cheating_Matrix\Plugins\DllTeste\File1.h=C:\Projetos\Cheating_Matrix\Plugins\DllTeste\File2.h</Transaction>
+    <Transaction>2011/01/20 02:06:41.000.078,C:\Projetos\Cheating_Matrix\Plugins\DllTeste\TesteDll.cbproj=C:\Projetos\Cheating_Matrix\Plugins\DllTeste\ddraw.cbproj</Transaction>
+    <Transaction>2011/01/20 13:31:50.000.842,=C:\Projetos\Cheating_Matrix\Plugins\DllTeste\Unit5.cpp</Transaction>
+    <Transaction>2011/01/20 13:32:03.000.277,C:\Projetos\Cheating_Matrix\Plugins\DllTeste\Unit5.cpp=C:\Projetos\Cheating_Matrix\Plugins\DllTeste\ddfunc.cpp</Transaction>
+    <Transaction>2011/01/20 13:32:03.000.277,C:\Projetos\Cheating_Matrix\Plugins\DllTeste\Unit5.h=C:\Projetos\Cheating_Matrix\Plugins\DllTeste\ddfunc.h</Transaction>
+    <Transaction>2011/01/20 13:43:06.000.139,C:\Projetos\Cheating_Matrix\Plugins\DllTeste\File1.cpp=C:\Projetos\Cheating_Matrix\Plugins\DllTeste\dmain.cpp</Transaction>
+    <Transaction>2011/01/20 13:43:13.000.627,C:\Projetos\Cheating_Matrix\Plugins\DllTeste\dmain.cpp=C:\Projetos\Cheating_Matrix\Plugins\DllTeste\ddmain.cpp</Transaction>
+    <Transaction>2011/01/20 13:43:18.000.658,C:\Projetos\Cheating_Matrix\Plugins\DllTeste\File1.h=</Transaction>
+    <Transaction>2011/01/20 15:03:01.000.463,=C:\Projetos\Cheating_Matrix\Plugins\Loader\server.cpp</Transaction>
+    <Transaction>2011/01/20 15:23:56.000.156,C:\Projetos\Cheating_Matrix\Plugins\Loader\server.cpp=</Transaction>
+    <Transaction>2011/01/20 15:24:38.000.492,=C:\Projetos\Cheating_Matrix\Plugins\Loader\server.cpp</Transaction>
+    <Transaction>2011/01/20 15:40:13.000.899,=C:\Projetos\Cheating_Matrix\Plugins\tiposBase.cpp</Transaction>
+    <Transaction>2011/01/21 01:00:18.000.009,C:\Projetos\Cheating_Matrix\Plugins\Loader\server.cpp=</Transaction>
+    <Transaction>2011/01/21 01:00:28.000.011,=C:\Projetos\Cheating_Matrix\Plugins\client.cpp</Transaction>
+    <Transaction>2011/01/21 08:52:42.000.077,=C:\Projetos\Cheating_Matrix\Plugins\VMProtectSDK.h</Transaction>
+    <Transaction>2011/01/21 08:53:29.000.504,C:\Projetos\Cheating_Matrix\Plugins\VMProtectSDK.h=</Transaction>
+    <Transaction>2011/01/21 11:36:21.419,C:\Projetos\Cheating_Matrix\Plugins\DllTeste\dmx.cbproj=C:\Projetos\Cheating_Matrix\Plugins\DllTeste\ddraw.cbproj</Transaction>
+  </Transactions>
+</BorlandProject>

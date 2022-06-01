@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2010/06/22 22:16:49.484.h,E:\Programacao\MeusProjetos\Cheating_Matrix\Plugins\Aimbot\subplugin\calibrador.h=E:\Programacao\MeusProjetos\Cheating_Matrix\Plugins\Aimbot\subplugin\Unit5.h</Transaction>
+    <Transaction>2010/06/22 22:16:49.484.cpp,E:\Programacao\MeusProjetos\Cheating_Matrix\Plugins\Aimbot\subplugin\calibrador.cpp=E:\Programacao\MeusProjetos\Cheating_Matrix\Plugins\Aimbot\subplugin\Unit5.cpp</Transaction>
+    <Transaction>2010/08/13 15:51:54.890.cpp,D:\Programacao\MeusProjetos\Cheating_Matrix\Plugins\Aimbot\subplugin\constantes.cpp=D:\Programacao\MeusProjetos\Cheating_Matrix\Plugins\Aimbot\subplugin\Unit5.cpp</Transaction>
+    <Transaction>2010/08/13 15:51:54.921.h,D:\Programacao\MeusProjetos\Cheating_Matrix\Plugins\Aimbot\subplugin\constantes.h=D:\Programacao\MeusProjetos\Cheating_Matrix\Plugins\Aimbot\subplugin\Unit5.h</Transaction>
+  </Transactions>
+</BorlandProject>

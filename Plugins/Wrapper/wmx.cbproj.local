@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2011/01/20 16:55:15.000.458,=C:\Users\Douglas\Documents\RAD Studio\Projects\File1.cpp</Transaction>
+    <Transaction>2011/01/20 16:55:59.000.577,C:\Projetos\Cheating_Matrix\Plugins\Wrapper\wrapMain.cpp=C:\Users\Douglas\Documents\RAD Studio\Projects\File1.cpp</Transaction>
+    <Transaction>2011/01/20 16:56:10.000.226,C:\Projetos\Cheating_Matrix\Plugins\Wrapper\wmx.cbproj=C:\Users\Douglas\Documents\RAD Studio\Projects\Project1.cbproj</Transaction>
+    <Transaction>2011/01/20 16:56:41.000.166,=C:\Projetos\Cheating_Matrix\Plugins\client.cpp</Transaction>
+    <Transaction>2011/01/20 18:06:47.000.492,=C:\Projetos\Cheating_Matrix\Plugins\debugutils.cpp</Transaction>
+    <Transaction>2011/01/20 18:06:47.000.499,=C:\Projetos\Cheating_Matrix\Plugins\osInfo.cpp</Transaction>
+    <Transaction>2011/01/21 01:00:51.000.105,C:\Projetos\Cheating_Matrix\Plugins\client.cpp=</Transaction>
+    <Transaction>2011/01/21 01:01:02.000.990,=C:\Projetos\Cheating_Matrix\Plugins\Loader\server.cpp</Transaction>
+    <Transaction>2011/01/21 17:30:03.594,=C:\Projetos\Cheating_Matrix\Plugins\Wrapper\manualmap.h</Transaction>
+    <Transaction>2011/01/21 17:30:17.928,C:\Projetos\Cheating_Matrix\Plugins\Wrapper\manualmap.h=</Transaction>
+    <Transaction>2011/01/21 17:31:26.555,=C:\Projetos\Cheating_Matrix\Plugins\Wrapper\manualmap.h</Transaction>
+    <Transaction>2011/01/21 17:32:33.683,C:\Projetos\Cheating_Matrix\Plugins\Wrapper\manualmap.h=</Transaction>
+    <Transaction>2011/01/21 17:32:38.574,=C:\Projetos\Cheating_Matrix\Plugins\Wrapper\manualmap.h</Transaction>
+    <Transaction>2011/01/21 17:34:37.138,C:\Projetos\Cheating_Matrix\Plugins\Wrapper\manualmap.h=</Transaction>
+    <Transaction>2011/01/21 17:34:41.345,=C:\Projetos\Cheating_Matrix\Plugins\Wrapper\manualmap.h</Transaction>
+    <Transaction>2011/01/21 17:35:03.830,=C:\Projetos\Cheating_Matrix\Plugins\Wrapper\manualmap.cpp</Transaction>
+    <Transaction>2011/01/21 17:37:53.719,C:\Projetos\Cheating_Matrix\Plugins\Wrapper\manualmap.cpp=</Transaction>
+    <Transaction>2011/01/21 17:37:56.240,C:\Projetos\Cheating_Matrix\Plugins\Wrapper\manualmap.h=</Transaction>
+    <Transaction>2011/01/21 17:38:00.367,=C:\Projetos\Cheating_Matrix\Plugins\Wrapper\manualmap.cpp</Transaction>
+    <Transaction>2011/01/21 17:39:24.766,C:\Projetos\Cheating_Matrix\Plugins\Wrapper\manualmap.cpp=</Transaction>
+    <Transaction>2011/01/21 17:39:34.841,=C:\Projetos\Cheating_Matrix\Plugins\Wrapper\manualmap.cpp</Transaction>
+    <Transaction>2011/01/21 17:42:01.724,=C:\Projetos\Cheating_Matrix\Plugins\Wrapper\manualmap.h</Transaction>
+    <Transaction>2011/01/22 03:52:42.845,C:\Projetos\Cheating_Matrix\Plugins\Wrapper\manualmap.cpp=</Transaction>
+    <Transaction>2011/01/22 03:52:45.984,C:\Projetos\Cheating_Matrix\Plugins\Wrapper\manualmap.h=</Transaction>
+  </Transactions>
+</BorlandProject>

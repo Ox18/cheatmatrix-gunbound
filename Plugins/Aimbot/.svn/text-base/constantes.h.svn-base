@@ -1,0 +1,16 @@
+//---------------------------------------------------------------------------
+
+#ifndef constantesH
+#define constantesH
+
+#include <windows.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include "pluginInfo.h"
+#include "System.hpp"
+
+String getString(int id);
+String constante(int id);
+
+//---------------------------------------------------------------------------
+#endif

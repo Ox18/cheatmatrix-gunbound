@@ -1,0 +1,215 @@
+// ---------------------------------------------------------------------------
+// #include "PluginClasses.h"
+
+#include "Unit2.h"
+// #include "Unit1.h"
+#include "sharing.h"
+#include "pluginInfo.h"
+#include "..\debugutils.h"
+#include "..\tiposBase.h"
+#include "..\pluginUtils.h"
+
+#pragma hdrstop
+
+#define DLL_EXPORT __declspec(dllexport)
+
+extern "C" DLL_EXPORT void __stdcall m4(int id, DWORD valor) {
+	VMProtectBegin("m4");
+	switch(id) {
+	case 1: {
+			porta = (int*)valor;
+			break;
+		}
+	case 2: {
+			idioma = (LINGUAGEM*)valor;
+			traduzPlugin();
+			break;
+		}
+	default:
+		break;
+	}
+	VMProtectEnd();
+}
+
+extern "C" DLL_EXPORT BOOL __stdcall m3() {
+	VMProtectBegin("m3");
+	return(CurrentPackets == MinimumPackets);
+	VMProtectEnd();
+}
+
+extern "C" DLL_EXPORT void __stdcall m2(PLUGIN_MEMORY_DATA valor) {
+	VMProtectBegin("m2");
+	int i;
+	if (MinimumPackets == 0 || (CurrentPackets + 1) > MinimumPackets) {
+		return;
+	}
+
+	for (i = 0; i < CurrentPackets; i++) {
+		if (pacotes[i].PacketID == valor.PacketID) {
+			return;
+		}
+	}
+
+	__try {
+		if ((valor.PacketID <= 0) || (valor.PacketID > MinimumPackets)) {
+			return;
+		}
+
+		pacotes[valor.PacketID - 1] = valor;
+		//debugar("Pacote %d: %X", valor.PacketID - 1, valor.Offset);
+		CurrentPackets++;
+	}
+	__except (1) {
+	}
+	VMProtectEnd();
+}
+
+extern "C" DLL_EXPORT PLUGIN_INFO* __stdcall m1(PAnsiChar valor1, HANDLE valor2, TColor valor3) {
+   	VMProtectBegin("m1");
+	PAnsiChar Key;
+	int j;
+	AnsiString R, k;
+	// TSwMessage *M;
+	RECT rect;
+	PLUGIN_INFO Result;
+
+	Result.Key = "";
+
+	k = "";
+
+	int count = 0;
+
+	for (int i = 9; i >= 0; i--) {
+		j = DWORD(valor1[i]) - DWORD('0');
+		valor1[i] = AnsiChar(0x41 + j);
+	}
+
+	Result.Key = valor1;
+	Result.Nome = (char*)Hack_Name;
+	Result.FileName = "";
+	Result.Nick = (char*)Hack_Nick;
+	Result.Registered = false;
+	Result.PutInList = Hack_ToList;
+	Result.Game = (char*)Hack_Game;
+	Result.Status = int(IS_Normal);
+	Result.Tipo = (int)Hack_Type;
+	Result.Codigo = (DWORD)Hack_Code;
+	Result.PluginHandle = 0;
+
+	try {
+		if (Form2 == NULL)
+			Form2 = new TForm2(Application);
+	}
+	catch(int i) {
+	}
+
+	SetParent((HWND)Form2->Handle, (HWND)valor2);
+	GetWindowRect((HWND) & valor2, &rect);
+	SetWindowPos(Form2->Handle, 0, 10, 5, rect.right, rect.bottom, SWP_DRAWFRAME);
+	Form2->BorderStyle = bsNone;
+	Result.WindowHandle = Form2->Handle;
+	SetWindowPos(Form2->Handle, 0, 10, 5, rect.right, rect.bottom, SWP_DRAWFRAME);
+
+	return &Result;
+	VMProtectEnd();
+} // , TMatrizData *Ender = NULL
+
+// -----------------------------------------------------------------------------}
+// Processa mensagem da matriz
+// -----------------------------------------------------------------------------}
+
+extern "C" DLL_EXPORT char* __stdcall m5(int valor) {
+	VMProtectBegin("m5");
+	switch(valor) {
+	case MT_Close: {
+			Form2->Close();
+		}break;
+	case MT_Hide: {
+			Form2->Hide();
+		}break;
+	case MT_Show: {
+			try {
+				Form2->Show();
+			}
+			catch(int e) {
+			}
+		}break;
+	case (MT_Visible)
+		: {
+			return(char*)Form2->Visible;
+		}break;
+	default:
+		break;
+	}
+	VMProtectEnd();
+}
+
+/*
+char* gerarNome() {
+	int dia = Now().DayOfWeek(); // StrToInt(Now().FormatString("dd"));
+	int len = strlen(Hack_Name);
+	char *nome = (char*)malloc(len + 5);
+	memset(nome, 0, len + 5);
+	for (int i = 0; i < len; i++) {
+		nome[i] = ((Hack_Name[i] + dia + 15) % 23) + 'a';
+	}
+	memcpy(&nome[len], ".dll", 4);
+	return nome;
+}
+
+char* gerarNomeRandomico(int len) {
+	Randomize();
+	char *nome = (char*)malloc(len + 1);
+	memset(nome, 0, len + 1);
+	for (int i = 0; i < len; i++) {
+		nome[i] = random(23) + (((random(50) % 2) == 0) ? 'a' : 'A');
+	}
+	return nome;
+}      */
+
+void StartApp() {
+	VMProtectBegin("start");
+	pacotes = new PLUGIN_MEMORY_DATA[MinimumPackets];
+	cliente = new Cliente((PROC)processar);
+	cliente->inicializar();
+	nomeSubplugin = "spa.pl"; // gerarNome(); //gerarNomeRandomico(random(7)+3);
+	//if(FileExists("_"))
+	  //	nomeSubplugin = "spi.pl";
+//		debugar("nome: %s", nomeSubplugin);
+
+	AnsiString diretorio = getDiretorioSubplugins();
+	AnsiString nomePlugin(nomeSubplugin);
+	diretorio = diretorio + nomePlugin;
+	//debugar("Diretorio subplugin: %s", diretorio.c_str());
+	HRSRC hRes = FindResource((HINSTANCE)instancia, MAKEINTRESOURCE(1578),
+	RT_RCDATA);
+	HGLOBAL hMem = LoadResource((HINSTANCE)instancia, hRes);
+	void* pMem = LockResource(hMem);
+	DWORD size = SizeofResource((HINSTANCE)instancia, hRes);
+	char* fname = diretorio.c_str();
+	decriptar((char*)pMem, size, fname);
+	VMProtectEnd();
+}
+
+#pragma argsused
+
+int WINAPI DllEntryPoint(HINSTANCE hinst, unsigned long reason, void* lpReserved) {
+	switch(reason) {
+	case DLL_PROCESS_ATTACH: {
+			DisableThreadLibraryCalls(hinst);
+			instancia = (DWORD)hinst;
+			StartApp();
+		}break;
+	case DLL_PROCESS_DETACH: {
+			__try{
+				delete cliente;
+			}__except(1){
+            }
+		}break;
+	default:
+		break;
+	}
+	return true;
+}
+
+// ---------------------------------------------------------------------------
